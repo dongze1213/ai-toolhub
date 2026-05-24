@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Color Palette Generator | Create Beautiful Color Schemes</title>
+  <meta name="description" content="Generate beautiful color palettes from any base color. Export as HEX, RGB, HSL. Preview palettes on UI components. Free color scheme generator, no sign-up required.">
+  <meta name="keywords" content="color palette generator, color scheme generator, color tool, hex color, UI colors, design colors, free color generator, complementary colors">
+  <link rel="canonical" href="https://ai-toolhub.vercel.app/tools/ai-color-palette-generator">
+  <meta property="og:url" content="https://ai-toolhub.vercel.app/tools/ai-color-palette-generator">
+  <meta property="og:title" content="Free Color Palette Generator | AIToolHub">
+  <meta property="og:description" content="Generate beautiful color palettes from any base color. Free, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F916;</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Color Palette Generator",
+    "description": "Free color palette generator with multiple harmony modes and format export",
+    "brand": { "@type": "Brand", "name": "AIToolHub" },
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a color palette?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A color palette is a collection of colors used together in design. Good palettes follow color theory principles like complementary, analogous, or triadic harmony to create visually pleasing combinations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are color harmony modes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Color harmony modes use color theory to generate pleasing combinations: Complementary uses opposite colors, Analogous uses adjacent colors, Triadic uses three equally spaced colors, and Split-complementary uses a base color plus two adjacent to its complement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I choose colors for my project?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Start with your brand or primary color, then use a palette generator to find harmonious accent colors. Consider contrast for accessibility, and test your palette on real UI components to see how it looks in context."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#x1F916;</span>
+        <span>AIToolHub</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html#tools">AI Tools</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container tool-page">
+    <div class="tool-header">
+      <a href="../index.html" class="back-link">&larr; Back</a>
+      <h1>Color Palette Generator</h1>
+      <span class="privacy-note">&#128274; 100% Private</span>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-input-panel">
+        <div class="input-group">
+          <label for="baseColor">Base Color</label>
+          <div class="input-row">
+            <input type="color" id="baseColor" value="#7c3aed" style="width:48px;height:40px;border:none;background:none;cursor:pointer;padding:0">
+            <input type="text" id="hexInput" class="input-field" value="#7c3aed" placeholder="#7c3aed" oninput="syncColor(this.value)">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Harmony Mode</label>
+          <div class="btn-group">
+            <button class="btn active" data-mode="complementary" onclick="setMode(this)">Complementary</button>
+            <button class="btn" data-mode="analogous" onclick="setMode(this)">Analogous</button>
+            <button class="btn" data-mode="triadic" onclick="setMode(this)">Triadic</button>
+            <button class="btn" data-mode="split" onclick="setMode(this)">Split-Comp</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Format</label>
+          <div class="btn-group">
+            <button class="btn active" data-fmt="hex" onclick="setFmt(this)">HEX</button>
+            <button class="btn" data-fmt="rgb" onclick="setFmt(this)">RGB</button>
+            <button class="btn" data-fmt="hsl" onclick="setFmt(this)">HSL</button>
+          </div>
+        </div>
+
+        <button class="btn-generate" onclick="generate()">&#127912; Generate Palette</button>
+      </div>
+
+      <div class="calc-results-panel">
+        <div id="paletteDisplay" style="display:flex;height:180px;border-radius:8px;overflow:hidden;margin-bottom:16px"></div>
+        <div id="paletteColors"></div>
+        <div id="uiPreview" style="margin-top:20px"></div>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <h2>About Color Palette Generator</h2>
+      <p>Our color palette generator creates harmonious color schemes based on proven color theory principles. Pick a base color and choose a harmony mode to instantly generate a professional palette. Preview your colors on real UI components to see how they work in context.</p>
+
+      <h3>Features</h3>
+      <ul>
+        <li>4 harmony modes: Complementary, Analogous, Triadic, Split-Complementary</li>
+        <li>Visual color picker and HEX input</li>
+        <li>Export colors in HEX, RGB, or HSL format</li>
+        <li>Live UI component preview with your palette</li>
+        <li>One-click copy of any color value</li>
+      </ul>
+
+      <h3>Color Theory Basics</h3>
+      <p>Complementary colors sit opposite each other on the color wheel and create maximum contrast. Analogous colors are neighbors on the wheel and create harmonious, low-contrast schemes. Triadic colors are evenly spaced at 120-degree intervals, offering vibrant variety while maintaining balance.</p>
+    </div>
+
+    <div class="tool-about faq-section">
+      <h2>FAQ</h2>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> What is a color palette?</div>
+        <div class="faq-answer">A color palette is a collection of colors used together in design. Good palettes follow color theory principles like complementary, analogous, or triadic harmony to create visually pleasing combinations.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> What are color harmony modes?</div>
+        <div class="faq-answer">Color harmony modes use color theory to generate pleasing combinations: Complementary uses opposite colors, Analogous uses adjacent colors, Triadic uses three equally spaced colors, and Split-complementary uses a base color plus two adjacent to its complement.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> How do I choose colors for my project?</div>
+        <div class="faq-answer">Start with your brand or primary color, then use a palette generator to find harmonious accent colors. Consider contrast for accessibility, and test your palette on real UI components to see how it looks in context.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="../privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    var currentMode = 'complementary';
+    var currentFmt = 'hex';
+    var palette = [];
+
+    function setMode(el) {
+      currentMode = el.dataset.mode;
+      el.parentElement.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('active'); });
+      el.classList.add('active');
+    }
+    function setFmt(el) {
+      currentFmt = el.dataset.fmt;
+      el.parentElement.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('active'); });
+      el.classList.add('active');
+      if (palette.length) displayPalette(palette);
+    }
+
+    document.getElementById('baseColor').addEventListener('input', function() {
+      document.getElementById('hexInput').value = this.value;
+    });
+
+    function syncColor(val) {
+      if (/^#[0-9a-f]{6}$/i.test(val)) {
+        document.getElementById('baseColor').value = val;
+      }
+    }
+
+    function hexToHsl(hex) {
+      var r = parseInt(hex.slice(1,3),16)/255;
+      var g = parseInt(hex.slice(3,5),16)/255;
+      var b = parseInt(hex.slice(5,7),16)/255;
+      var max = Math.max(r,g,b), min = Math.min(r,g,b);
+      var h, s, l = (max+min)/2;
+      if (max === min) { h = s = 0; }
+      else {
+        var d = max - min;
+        s = l > 0.5 ? d/(2-max-min) : d/(max+min);
+        switch(max) {
+          case r: h = ((g-b)/d + (g<b?6:0))/6; break;
+          case g: h = ((b-r)/d + 2)/6; break;
+          case b: h = ((r-g)/d + 4)/6; break;
+        }
+      }
+      return [Math.round(h*360), Math.round(s*100), Math.round(l*100)];
+    }
+
+    function hslToHex(h, s, l) {
+      h = ((h%360)+360)%360;
+      s = Math.max(0,Math.min(100,s))/100;
+      l = Math.max(0,Math.min(100,l))/100;
+      var c = (1 - Math.abs(2*l - 1)) * s;
+      var x = c * (1 - Math.abs((h/60)%2 - 1));
+      var m = l - c/2;
+      var r1, g1, b1;
+      if (h < 60) { r1=c; g1=x; b1=0; }
+      else if (h < 120) { r1=x; g1=c; b1=0; }
+      else if (h < 180) { r1=0; g1=c; b1=x; }
+      else if (h < 240) { r1=0; g1=x; b1=c; }
+      else if (h < 300) { r1=x; g1=0; b1=c; }
+      else { r1=c; g1=0; b1=x; }
+      function toHex(v) { return Math.round((v+m)*255).toString(16).padStart(2,'0'); }
+      return '#' + toHex(r1) + toHex(g1) + toHex(b1);
+    }
+
+    function hexToRgb(hex) {
+      var r = parseInt(hex.slice(1,3),16);
+      var g = parseInt(hex.slice(3,5),16);
+      var b = parseInt(hex.slice(5,7),16);
+      return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    }
+
+    function formatColor(hex) {
+      if (currentFmt === 'rgb') return hexToRgb(hex);
+      if (currentFmt === 'hsl') { var h = hexToHsl(hex); return 'hsl(' + h[0] + ', ' + h[1] + '%, ' + h[2] + '%)'; }
+      return hex;
+    }
+
+    function generate() {
+      var base = document.getElementById('baseColor').value;
+      var hsl = hexToHsl(base);
+      var h = hsl[0], s = hsl[1], l = hsl[2];
+      var colors = [];
+
+      switch(currentMode) {
+        case 'complementary':
+          colors = [
+            hslToHex(h, s, l),
+            hslToHex(h, s, Math.min(l+15, 90)),
+            hslToHex(h, Math.max(s-20,10), Math.min(l+30, 95)),
+            hslToHex((h+180)%360, s, l),
+            hslToHex((h+180)%360, s, Math.max(l-15,10))
+          ];
+          break;
+        case 'analogous':
+          colors = [
+            hslToHex((h-30+360)%360, s, l),
+            hslToHex((h-15+360)%360, s, l),
+            hslToHex(h, s, l),
+            hslToHex((h+15)%360, s, l),
+            hslToHex((h+30)%360, s, l)
+          ];
+          break;
+        case 'triadic':
+          colors = [
+            hslToHex(h, s, l),
+            hslToHex(h, s, Math.min(l+20, 90)),
+            hslToHex((h+120)%360, s, l),
+            hslToHex((h+240)%360, s, l),
+            hslToHex((h+240)%360, s, Math.max(l-15,10))
+          ];
+          break;
+        case 'split':
+          colors = [
+            hslToHex(h, s, l),
+            hslToHex(h, s, Math.min(l+15, 90)),
+            hslToHex((h+150)%360, s, l),
+            hslToHex((h+210)%360, s, l),
+            hslToHex((h+180)%360, s, Math.max(l-15,10))
+          ];
+          break;
+      }
+      palette = colors;
+      displayPalette(colors);
+    }
+
+    function displayPalette(colors) {
+      var display = document.getElementById('paletteDisplay');
+      display.innerHTML = colors.map(function(c) {
+        return '<div style="flex:1;background:' + c + ';cursor:pointer" onclick="navigator.clipboard.writeText(\'' + c + '\')" title="Click to copy ' + c + '"></div>';
+      }).join('');
+
+      var colorList = document.getElementById('paletteColors');
+      colorList.innerHTML = colors.map(function(c, i) {
+        var label = ['Primary', 'Light', 'Lighter', 'Secondary', 'Dark'][i] || 'Color ' + (i+1);
+        return '<div style="display:flex;align-items:center;gap:12px;padding:10px;background:var(--bg3);border-radius:8px;margin-bottom:6px">' +
+          '<div style="width:32px;height:32px;border-radius:6px;background:' + c + ';flex-shrink:0;border:1px solid var(--border)"></div>' +
+          '<div style="flex:1;min-width:0">' +
+            '<div style="font-size:12px;color:var(--text3);margin-bottom:2px">' + label + '</div>' +
+            '<div style="font-size:14px;font-family:monospace;color:var(--text)">' + formatColor(c) + '</div>' +
+          '</div>' +
+          '<button class="btn" style="padding:4px 10px;font-size:11px" onclick="navigator.clipboard.writeText(\'' + formatColor(c).replace(/'/g, "\\'") + '\');this.textContent=\'Copied!\';setTimeout(function(){this.textContent=\'Copy\'}.bind(this),1500)">Copy</button>' +
+        '</div>';
+      }).join('');
+
+      var preview = document.getElementById('uiPreview');
+      preview.innerHTML = '<div style="font-size:12px;color:var(--text3);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px">UI Preview</div>' +
+        '<div style="background:' + colors[0] + ';border-radius:8px;padding:20px;color:#fff">' +
+          '<div style="font-size:16px;font-weight:700;margin-bottom:8px">Sample Card</div>' +
+          '<div style="font-size:13px;opacity:0.9;margin-bottom:12px">This is how your palette looks in a real UI component.</div>' +
+          '<div style="display:flex;gap:8px">' +
+            '<button style="padding:8px 16px;border:none;border-radius:6px;background:' + colors[3] + ';color:#fff;font-size:13px;cursor:pointer">Primary</button>' +
+            '<button style="padding:8px 16px;border:1px solid rgba(255,255,255,0.3);border-radius:6px;background:transparent;color:#fff;font-size:13px;cursor:pointer">Secondary</button>' +
+          '</div>' +
+        '</div>';
+    }
+
+    document.addEventListener('DOMContentLoaded', generate);
+  </script>
+</body>
+</html>

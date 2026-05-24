@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Prompt Generator | Free ChatGPT & Midjourney Prompt Builder</title>
+  <meta name="description" content="Build perfect AI prompts for ChatGPT, Midjourney, DALL-E, and more. Free prompt generator with templates for writing, coding, art, and brainstorming. No sign-up.">
+  <meta name="keywords" content="AI prompt generator, ChatGPT prompts, Midjourney prompt builder, DALL-E prompts, AI art prompts, prompt engineering tool, free prompt generator">
+  <link rel="canonical" href="https://ai-toolhub.vercel.app/tools/ai-prompt-generator">
+  <meta property="og:url" content="https://ai-toolhub.vercel.app/tools/ai-prompt-generator">
+  <meta property="og:title" content="AI Prompt Generator | Free ChatGPT & Midjourney Prompt Builder">
+  <meta property="og:description" content="Build perfect AI prompts for ChatGPT, Midjourney, DALL-E. Free, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F916;</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI Prompt Generator",
+    "description": "Free AI prompt builder for ChatGPT, Midjourney, DALL-E, and other AI platforms",
+    "brand": { "@type": "Brand", "name": "AIToolHub" },
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an AI prompt generator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An AI prompt generator helps you create effective prompts for AI tools like ChatGPT, Midjourney, and DALL-E. It provides structured templates and customization options to get better results from AI models."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I write a good AI prompt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A good AI prompt includes: clear context about what you want, specific instructions or constraints, desired format or tone, and any relevant background information. Our generator structures these elements automatically."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use these prompts for ChatGPT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our prompts are designed to work with ChatGPT, Claude, Gemini, and other text-based AI models. We also offer specific templates for image generation tools like Midjourney and DALL-E."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#x1F916;</span>
+        <span>AIToolHub</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html#tools">AI Tools</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container tool-page">
+    <div class="tool-header">
+      <a href="../index.html" class="back-link">&larr; Back</a>
+      <h1>AI Prompt Generator</h1>
+      <span class="privacy-note">&#128274; 100% Private</span>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-input-panel">
+        <div class="input-group">
+          <label>AI Platform</label>
+          <div class="btn-group">
+            <button class="btn active" data-platform="chatgpt" onclick="setPlatform(this)">ChatGPT</button>
+            <button class="btn" data-platform="midjourney" onclick="setPlatform(this)">Midjourney</button>
+            <button class="btn" data-platform="dalle" onclick="setPlatform(this)">DALL-E</button>
+            <button class="btn" data-platform="claude" onclick="setPlatform(this)">Claude</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="promptType">Prompt Type</label>
+          <select id="promptType" class="input-field" onchange="updateSubOptions()">
+            <option value="writing">Writing & Content</option>
+            <option value="coding">Coding & Development</option>
+            <option value="art">Art & Image Generation</option>
+            <option value="brainstorm">Brainstorming & Ideas</option>
+            <option value="analysis">Analysis & Research</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label for="subject">Subject / Topic</label>
+          <input type="text" id="subject" class="input-field" placeholder="e.g. startup landing page, fantasy castle, Python web scraper">
+        </div>
+
+        <div class="input-group" id="styleGroup">
+          <label>Style / Tone</label>
+          <div class="btn-group">
+            <button class="btn active" data-style="professional" onclick="setStyle(this)">Professional</button>
+            <button class="btn" data-style="creative" onclick="setStyle(this)">Creative</button>
+            <button class="btn" data-style="technical" onclick="setStyle(this)">Technical</button>
+            <button class="btn" data-style="casual" onclick="setStyle(this)">Casual</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="detail">Additional Details (optional)</label>
+          <textarea id="detail" class="input-field" placeholder="Any specific requirements, constraints, or context you want to include..." rows="3"></textarea>
+        </div>
+
+        <button class="btn-generate" onclick="generate()">&#10024; Generate Prompt</button>
+      </div>
+
+      <div class="calc-results-panel">
+        <div class="output-area empty" id="output">
+          <span>Select options and click Generate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <h2>About AI Prompt Generator</h2>
+      <p>Our AI prompt generator helps you craft effective, structured prompts for popular AI platforms. Good prompts are the key to getting high-quality outputs from AI models. This tool provides proven prompt templates and structures your input into a format that AI models understand best.</p>
+
+      <h3>Features</h3>
+      <ul>
+        <li>Supports ChatGPT, Midjourney, DALL-E, and Claude</li>
+        <li>6 prompt categories: Writing, Coding, Art, Brainstorming, Analysis, and Custom</li>
+        <li>Adjustable tone and style options</li>
+        <li>Generates structured, copy-ready prompts instantly</li>
+        <li>100% browser-based, completely free</li>
+      </ul>
+
+      <h3>How to Write Better AI Prompts</h3>
+      <p>The key to effective AI prompting is specificity. Instead of "write about marketing," try "write a 500-word blog post about content marketing strategies for SaaS startups, targeting CMOs, with a professional tone and actionable takeaways." Our generator structures your input into this format automatically.</p>
+    </div>
+
+    <div class="tool-about faq-section">
+      <h2>FAQ</h2>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> What is an AI prompt generator?</div>
+        <div class="faq-answer">An AI prompt generator helps you create effective prompts for AI tools like ChatGPT, Midjourney, and DALL-E. It provides structured templates and customization options to get better results from AI models.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> How do I write a good AI prompt?</div>
+        <div class="faq-answer">A good AI prompt includes: clear context about what you want, specific instructions or constraints, desired format or tone, and any relevant background information. Our generator structures these elements automatically.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> Can I use these prompts for ChatGPT?</div>
+        <div class="faq-answer">Yes, our prompts are designed to work with ChatGPT, Claude, Gemini, and other text-based AI models. We also offer specific templates for image generation tools like Midjourney and DALL-E.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="../privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    var currentPlatform = 'chatgpt';
+    var currentStyle = 'professional';
+
+    function setPlatform(el) {
+      currentPlatform = el.dataset.platform;
+      el.parentElement.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('active'); });
+      el.classList.add('active');
+      var styleGroup = document.getElementById('styleGroup');
+      if (currentPlatform === 'midjourney' || currentPlatform === 'dalle') {
+        styleGroup.style.display = 'none';
+        document.getElementById('promptType').value = 'art';
+      } else {
+        styleGroup.style.display = 'block';
+      }
+    }
+
+    function setStyle(el) {
+      currentStyle = el.dataset.style;
+      el.parentElement.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('active'); });
+      el.classList.add('active');
+    }
+
+    function generate() {
+      var type = document.getElementById('promptType').value;
+      var subject = document.getElementById('subject').value.trim();
+      var detail = document.getElementById('detail').value.trim();
+      var prompt = '';
+
+      if (!subject) {
+        subject = 'your topic';
+      }
+
+      if (currentPlatform === 'midjourney') {
+        var styles = ['cinematic lighting', 'highly detailed', '8k resolution', 'photorealistic', 'digital art', 'concept art'];
+        var moods = ['dramatic', 'serene', 'mysterious', 'vibrant', 'moody'];
+        var pickedStyle = styles[Math.floor(Math.random() * styles.length)];
+        var pickedMood = moods[Math.floor(Math.random() * moods.length)];
+        prompt = subject + ', ' + pickedStyle + ', ' + pickedMood + ' atmosphere, masterpiece, best quality';
+        if (detail) prompt += ', ' + detail;
+        prompt += ' --ar 16:9 --v 6';
+      } else if (currentPlatform === 'dalle') {
+        prompt = 'Create a ' + (currentStyle === 'creative' ? 'creative and artistic' : 'detailed and realistic') + ' image of ' + subject + '.';
+        if (detail) prompt += ' ' + detail + '.';
+        prompt += ' High quality, professional output.';
+      } else {
+        var templates = {
+          writing: {
+            professional: "You are an expert content writer. Write a well-structured piece about {subject}. Use a professional tone with clear headings, actionable insights, and a compelling introduction. {detail} Format the output with proper markdown.",
+            creative: "Write a creative, engaging piece about {subject}. Be imaginative, use vivid language, metaphors, and storytelling techniques. Make it memorable and thought-provoking. {detail}",
+            technical: "Write a technical article about {subject}. Include specific terminology, data points, and industry-standard practices. Target an informed professional audience. {detail} Use proper markdown formatting.",
+            casual: "Write a friendly, conversational piece about {subject}. Use everyday language, relatable examples, and a warm tone. Keep it engaging but approachable. {detail}"
+          },
+          coding: {
+            professional: "You are a senior software engineer. Provide a production-ready solution for {subject}. Include: 1) Clean, well-commented code 2) Error handling 3) Brief explanation of the approach. Use best practices and design patterns. {detail}",
+            creative: "Help me build something cool with {subject}. Think outside the box, suggest creative approaches, and provide innovative code examples. Don't be afraid to use modern or experimental techniques. {detail}",
+            technical: "Provide a technically detailed implementation for {subject}. Include: code structure, algorithm analysis, time/space complexity, and optimization considerations. {detail} Include inline documentation.",
+            casual: "Help me code {subject}. Keep it simple, explain things step by step, and use beginner-friendly language. Add comments so I can understand what each part does. {detail}"
+          },
+          art: {
+            professional: "Create a professional design concept for {subject}. Consider composition, color theory, typography, and visual hierarchy. Describe the visual elements in detail. {detail}",
+            creative: "Design something unique and artistic inspired by {subject}. Push creative boundaries, experiment with unconventional styles, and think conceptually. {detail}",
+            technical: "Create a technically precise design specification for {subject}. Include exact dimensions, color codes, spacing, and alignment rules. {detail}",
+            casual: "Come up with a fun design idea for {subject}. Keep it lighthearted, colorful, and visually appealing. Don't overthink it. {detail}"
+          },
+          brainstorm: {
+            professional: "Generate 10 strategic ideas for {subject}. For each idea, provide: a brief description, potential benefits, implementation difficulty (easy/medium/hard), and estimated impact. Be specific and actionable. {detail}",
+            creative: "Brainstorm wild, unconventional ideas for {subject}. Don't limit yourself — think big, think weird, think wonderful. Quantity over quality at first. Aim for at least 10 ideas. {detail}",
+            technical: "Provide 8 technical solutions for {subject}. For each: describe the approach, list required tools/technologies, pros and cons, and scalability considerations. {detail}",
+            casual: "Help me brainstorm some ideas for {subject}. Just throw out whatever comes to mind — the more ideas the better. Keep it fun and spontaneous. {detail}"
+          },
+          analysis: {
+            professional: "Provide a comprehensive analysis of {subject}. Include: current state assessment, key trends, strengths and weaknesses, opportunities and threats, and strategic recommendations. {detail} Use data-driven reasoning.",
+            creative: "Analyze {subject} from multiple creative angles. Look at it through different lenses — cultural, psychological, historical, futuristic. Find connections others might miss. {detail}",
+            technical: "Conduct a technical analysis of {subject}. Include: architecture review, performance metrics, security considerations, and optimization opportunities. {detail} Be specific and quantitative.",
+            casual: "Give me your honest take on {subject}. What's good about it? What's not? What should people know? Keep it balanced and easy to understand. {detail}"
+          },
+          custom: {
+            professional: "Regarding {subject}: provide a thorough, professional response with clear structure and actionable insights. {detail}",
+            creative: "Regarding {subject}: be creative, think differently, and provide a unique perspective. Surprise me. {detail}",
+            technical: "Regarding {subject}: provide a detailed, technically accurate response with specific data and references. {detail}",
+            casual: "Regarding {subject}: just give me a straightforward, easy-to-understand response. No jargon. {detail}"
+          }
+        };
+
+        var templateSet = templates[type] || templates.custom;
+        prompt = (templateSet[currentStyle] || templateSet.professional)
+          .replace('{subject}', subject)
+          .replace('{detail}', detail ? detail + '.' : '');
+      }
+
+      var el = document.getElementById('output');
+      el.classList.remove('empty');
+      el.innerHTML = '<button class="copy-btn" onclick="copyText()">&#128203; Copy</button>' + escapeHtml(prompt);
+    }
+
+    function escapeHtml(text) {
+      var div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function copyText() {
+      var el = document.getElementById('output');
+      var text = el.innerText.replace('Copy', '').trim();
+      navigator.clipboard.writeText(text).then(function() {
+        var btn = el.querySelector('.copy-btn');
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.innerHTML = '&#128203; Copy'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

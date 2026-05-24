@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Lorem Ipsum Generator | Placeholder Text Creator</title>
+  <meta name="description" content="Generate lorem ipsum placeholder text in paragraphs, sentences, or words. Classic and modern variations. Free online generator, no sign-up, one-click copy.">
+  <meta name="keywords" content="lorem ipsum generator, placeholder text generator, dummy text, filler text, lorem generator, free lorem ipsum, online text generator">
+  <link rel="canonical" href="https://ai-toolhub.vercel.app/tools/ai-lorem-ipsum-generator">
+  <meta property="og:url" content="https://ai-toolhub.vercel.app/tools/ai-lorem-ipsum-generator">
+  <meta property="og:title" content="Free Lorem Ipsum Generator | AIToolHub">
+  <meta property="og:description" content="Generate lorem ipsum placeholder text instantly. Free, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F916;</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Lorem Ipsum Generator",
+    "description": "Free lorem ipsum placeholder text generator with classic and modern variations",
+    "brand": { "@type": "Brand", "name": "AIToolHub" },
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Lorem Ipsum?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lorem Ipsum is placeholder text used in printing, graphic design, and web development. It has been the industry standard dummy text since the 1500s, when an unknown printer scrambled a section of Cicero's text."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do designers use Lorem Ipsum?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lorem Ipsum allows designers to focus on visual elements like typography, layout, and spacing without being distracted by readable content. It closely mimics the distribution of letters in English."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Lorem Ipsum in my projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Lorem Ipsum is freely available for use in any project. It is not copyrighted and has been in the public domain for centuries."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#x1F916;</span>
+        <span>AIToolHub</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html#tools">AI Tools</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container tool-page">
+    <div class="tool-header">
+      <a href="../index.html" class="back-link">&larr; Back</a>
+      <h1>Lorem Ipsum Generator</h1>
+      <span class="privacy-note">&#128274; 100% Private</span>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-input-panel">
+        <div class="input-group">
+          <label>Unit</label>
+          <div class="btn-group">
+            <button class="btn active" data-unit="paragraphs" onclick="setUnit(this)">Paragraphs</button>
+            <button class="btn" data-unit="sentences" onclick="setUnit(this)">Sentences</button>
+            <button class="btn" data-unit="words" onclick="setUnit(this)">Words</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="count">Count</label>
+          <div class="input-row">
+            <input type="range" id="count" class="range-slider" min="1" max="20" value="3" oninput="document.getElementById('countVal').textContent=this.value">
+            <span class="input-suffix" id="countVal" style="min-width:30px;text-align:right">3</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Variation</label>
+          <div class="btn-group">
+            <button class="btn active" data-variation="classic" onclick="setVariation(this)">Classic</button>
+            <button class="btn" data-variation="modern" onclick="setVariation(this)">Modern</button>
+            <button class="btn" data-variation="hipster" onclick="setVariation(this)">Hipster</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--text)">
+            <input type="checkbox" id="startWithLorem" checked style="accent-color:var(--accent);width:16px;height:16px"> Start with "Lorem ipsum..."
+          </label>
+        </div>
+
+        <button class="btn-generate" onclick="generate()">&#10024; Generate</button>
+      </div>
+
+      <div class="calc-results-panel">
+        <div class="output-area empty" id="output">
+          <span>Click Generate to create text</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <h2>About Lorem Ipsum Generator</h2>
+      <p>Our Lorem Ipsum generator creates placeholder text for your design mockups, wireframes, and prototypes. Choose between classic Latin text, modern English variations, or trendy hipster-style text. Adjust the output unit and count to get exactly what you need.</p>
+
+      <h3>Features</h3>
+      <ul>
+        <li>Generate by paragraphs, sentences, or words</li>
+        <li>3 variations: Classic Latin, Modern English, Hipster</li>
+        <li>Option to start with the traditional "Lorem ipsum..." opening</li>
+        <li>One-click copy to clipboard</li>
+        <li>Instant generation, 100% browser-based</li>
+      </ul>
+    </div>
+
+    <div class="tool-about faq-section">
+      <h2>FAQ</h2>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> What is Lorem Ipsum?</div>
+        <div class="faq-answer">Lorem Ipsum is placeholder text used in printing, graphic design, and web development. It has been the industry standard dummy text since the 1500s, when an unknown printer scrambled a section of Cicero's text.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> Why do designers use Lorem Ipsum?</div>
+        <div class="faq-answer">Lorem Ipsum allows designers to focus on visual elements like typography, layout, and spacing without being distracted by readable content. It closely mimics the distribution of letters in English.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> Can I use Lorem Ipsum in my projects?</div>
+        <div class="faq-answer">Yes, Lorem Ipsum is freely available for use in any project. It is not copyrighted and has been in the public domain for centuries.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="../privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    var currentUnit = 'paragraphs';
+    var currentVariation = 'classic';
+
+    function setUnit(el) {
+      currentUnit = el.dataset.unit;
+      el.parentElement.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('active'); });
+      el.classList.add('active');
+    }
+    function setVariation(el) {
+      currentVariation = el.dataset.variation;
+      el.parentElement.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('active'); });
+      el.classList.add('active');
+    }
+
+    var classicWords = 'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'.split(' ');
+
+    var modernWords = 'the quick brown fox jumps over the lazy dog every great design begins with an even better story pixels are the building blocks of digital creativity good design is obvious great design is transparent simplicity is the ultimate sophistication content precedes design design in the absence of content is not design but decoration white space is like air it is necessary for design to breathe typography is the craft of endowing human language with a durable visual form the details are not the details they make the design color is a power which directly influences the soul good design is as little design as possible'.split(' ');
+
+    var hipsterWords = 'artisan cold-pressed kombucha narwhal fixie sustainable quinoa post-ironic farm-to-table biodiesel thundercats vegan hashtag craft beer chillwave waistcoat photo booth yr trust fund ethical listicle four dollar toast cronut cray mumblecore man bun salvia aesthetic kinfolk bitters skateboard vegan gluten-free asymmetrical actually heirloom cornhole sriracha normcore microdosing letterpress stumptown'.split(' ');
+
+    function pickRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+    function generateSentence(words) {
+      var len = 8 + Math.floor(Math.random() * 12);
+      var s = [];
+      for (var i = 0; i < len; i++) s.push(pickRandom(words));
+      s[0] = s[0].charAt(0).toUpperCase() + s[0].slice(1);
+      return s.join(' ') + '.';
+    }
+
+    function generateParagraph(words) {
+      var count = 3 + Math.floor(Math.random() * 4);
+      var sentences = [];
+      for (var i = 0; i < count; i++) sentences.push(generateSentence(words));
+      return sentences.join(' ');
+    }
+
+    function generate() {
+      var count = parseInt(document.getElementById('count').value);
+      var startWithLorem = document.getElementById('startWithLorem').checked;
+      var wordPool = currentVariation === 'classic' ? classicWords : currentVariation === 'modern' ? modernWords : hipsterWords;
+
+      var result = '';
+
+      if (currentUnit === 'paragraphs') {
+        var paras = [];
+        for (var i = 0; i < count; i++) paras.push(generateParagraph(wordPool));
+        result = paras.join('\n\n');
+      } else if (currentUnit === 'sentences') {
+        var sents = [];
+        for (var i = 0; i < count; i++) sents.push(generateSentence(wordPool));
+        result = sents.join(' ');
+      } else {
+        var w = [];
+        for (var i = 0; i < count; i++) w.push(pickRandom(wordPool));
+        result = w.join(' ');
+      }
+
+      if (startWithLorem && currentVariation === 'classic') {
+        var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ';
+        result = lorem + result;
+      }
+
+      var el = document.getElementById('output');
+      el.classList.remove('empty');
+      el.innerHTML = '<button class="copy-btn" onclick="copyText()">&#128203; Copy</button>' + escapeHtml(result);
+    }
+
+    function escapeHtml(text) {
+      var div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function copyText() {
+      var el = document.getElementById('output');
+      var text = el.innerText.replace('Copy', '').trim();
+      navigator.clipboard.writeText(text).then(function() {
+        var btn = el.querySelector('.copy-btn');
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.innerHTML = '&#128203; Copy'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

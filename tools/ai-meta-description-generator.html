@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meta Description Generator | Free SEO Meta Description Creator</title>
+  <meta name="description" content="Generate SEO-optimized meta descriptions for any topic. Auto-checks character count, includes keywords, and follows best practices. Free, no sign-up, 100% browser-based.">
+  <meta name="keywords" content="meta description generator, SEO meta description, meta tag generator, SEO tool, meta description writer, free meta description, search engine optimization">
+  <link rel="canonical" href="https://ai-toolhub.vercel.app/tools/ai-meta-description-generator">
+  <meta property="og:url" content="https://ai-toolhub.vercel.app/tools/ai-meta-description-generator">
+  <meta property="og:title" content="Meta Description Generator | Free SEO Tool | AIToolHub">
+  <meta property="og:description" content="Generate SEO-optimized meta descriptions instantly. Free, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F916;</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Meta Description Generator",
+    "description": "Free SEO meta description generator with character count and keyword optimization",
+    "brand": { "@type": "Brand", "name": "AIToolHub" },
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a meta description?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A meta description is an HTML attribute that provides a brief summary of a web page's content. It appears in search engine results below the page title and influences click-through rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the ideal meta description length?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The ideal meta description length is between 150-160 characters. Google typically truncates descriptions longer than 160 characters in search results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do meta descriptions affect SEO ranking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Meta descriptions are not a direct ranking factor, but they significantly impact click-through rates from search results. Higher CTR can indirectly improve your SEO performance."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#x1F916;</span>
+        <span>AIToolHub</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html#tools">AI Tools</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container tool-page">
+    <div class="tool-header">
+      <a href="../index.html" class="back-link">&larr; Back</a>
+      <h1>Meta Description Generator</h1>
+      <span class="privacy-note">&#128274; 100% Private</span>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-input-panel">
+        <div class="input-group">
+          <label for="topic">Page Topic / Title</label>
+          <input type="text" id="topic" class="input-field" placeholder="e.g. Best project management tools for startups">
+        </div>
+
+        <div class="input-group">
+          <label for="keywords">Target Keywords (comma-separated)</label>
+          <input type="text" id="keywords" class="input-field" placeholder="e.g. project management, startup tools, team collaboration">
+        </div>
+
+        <div class="input-group">
+          <label>Tone</label>
+          <div class="btn-group">
+            <button class="btn active" data-tone="professional" onclick="setTone(this)">Professional</button>
+            <button class="btn" data-tone="friendly" onclick="setTone(this)">Friendly</button>
+            <button class="btn" data-tone="urgent" onclick="setTone(this)">Urgent/CTA</button>
+            <button class="btn" data-tone="informative" onclick="setTone(this)">Informative</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="brand">Brand Name (optional)</label>
+          <input type="text" id="brand" class="input-field" placeholder="e.g. YourBrand">
+        </div>
+
+        <button class="btn-generate" onclick="generate()">&#128269; Generate Descriptions</button>
+      </div>
+
+      <div class="calc-results-panel">
+        <div class="output-area empty" id="output">
+          <span>Enter your topic and click Generate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <h2>About Meta Description Generator</h2>
+      <p>Our free meta description generator creates SEO-optimized descriptions that help improve your search engine click-through rates. It automatically checks character count (ideal: 150-160 characters), includes your target keywords naturally, and generates multiple variations so you can pick the best one.</p>
+
+      <h3>Features</h3>
+      <ul>
+        <li>Generates 3 unique meta description variations</li>
+        <li>Real-time character count with color-coded feedback</li>
+        <li>Keyword inclusion tracking</li>
+        <li>4 tone options: Professional, Friendly, Urgent, Informative</li>
+        <li>One-click copy to clipboard</li>
+        <li>Google SERP preview</li>
+      </ul>
+
+      <h3>Meta Description Best Practices</h3>
+      <p>Keep between 150-160 characters to avoid truncation. Include your primary keyword naturally in the first sentence. Add a clear call-to-action like "Learn more," "Discover," or "Get started." Make each page's meta description unique — never duplicate across pages.</p>
+    </div>
+
+    <div class="tool-about faq-section">
+      <h2>FAQ</h2>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> What is a meta description?</div>
+        <div class="faq-answer">A meta description is an HTML attribute that provides a brief summary of a web page's content. It appears in search engine results below the page title and influences click-through rates.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> What is the ideal meta description length?</div>
+        <div class="faq-answer">The ideal meta description length is between 150-160 characters. Google typically truncates descriptions longer than 160 characters in search results.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> Do meta descriptions affect SEO ranking?</div>
+        <div class="faq-answer">Meta descriptions are not a direct ranking factor, but they significantly impact click-through rates from search results. Higher CTR can indirectly improve your SEO performance.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="../privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    var currentTone = 'professional';
+
+    function setTone(el) {
+      currentTone = el.dataset.tone;
+      el.parentElement.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('active'); });
+      el.classList.add('active');
+    }
+
+    function generate() {
+      var topic = document.getElementById('topic').value.trim();
+      var keywords = document.getElementById('keywords').value.trim().split(',').map(function(k) { return k.trim().toLowerCase(); }).filter(Boolean);
+      var brand = document.getElementById('brand').value.trim();
+
+      if (!topic) { alert('Please enter a page topic or title.'); return; }
+
+      var topicCap = topic.charAt(0).toUpperCase() + topic.slice(1);
+      var keywordStr = keywords.length ? keywords.join(', ') : topic;
+
+      var templates = {
+        professional: [
+          { prefix: 'Discover', suffix: 'Get expert insights and make informed decisions with our comprehensive guide.' },
+          { prefix: 'Learn about', suffix: 'Explore proven strategies and best practices used by industry leaders.' },
+          { prefix: 'Find the best', suffix: 'Compare top options with detailed reviews and data-driven recommendations.' }
+        ],
+        friendly: [
+          { prefix: 'Looking for', suffix: 'We\'ve got you covered! Check out our handpicked tips and resources.' },
+          { prefix: 'Everything you need to know about', suffix: 'Dive in and discover simple, practical advice you can use today.' },
+          { prefix: 'Explore', suffix: 'Join thousands who already found what they were looking for. Start here!' }
+        ],
+        urgent: [
+          { prefix: topicCap + ' —', suffix: 'Don\'t miss out. Act now and see results fast.' },
+          { prefix: 'Ready for', suffix: 'Start today and transform your approach in minutes.' },
+          { prefix: topicCap + ':', suffix: 'Limited insights available. Get the complete guide before it\'s too late.' }
+        ],
+        informative: [
+          { prefix: 'A complete guide to', suffix: 'Covers everything you need to know, from basics to advanced techniques.' },
+          { prefix: 'Understanding', suffix: 'Read our in-depth analysis with the latest data and expert opinions.' },
+          { prefix: 'What is', suffix: 'Learn the fundamentals, key concepts, and practical applications in this guide.' }
+        ]
+      };
+
+      var toneTemplates = templates[currentTone] || templates.professional;
+      var descriptions = [];
+
+      for (var i = 0; i < 3; i++) {
+        var t = toneTemplates[i];
+        var desc = t.prefix + ' ' + topic;
+        if (brand) desc += ' at ' + brand;
+        desc += '. ' + t.suffix;
+
+        if (keywords.length) {
+          var kw = keywords[i % keywords.length];
+          if (desc.toLowerCase().indexOf(kw) === -1) {
+            desc = desc.replace('.', '. Includes ' + kw + '.');
+          }
+        }
+
+        if (desc.length > 165) desc = desc.substring(0, 157) + '...';
+        descriptions.push(desc);
+      }
+
+      var html = '';
+      for (var i = 0; i < descriptions.length; i++) {
+        var d = descriptions[i];
+        var len = d.length;
+        var color = len < 120 ? 'var(--yellow)' : len <= 160 ? 'var(--green)' : 'var(--red)';
+        var label = len < 120 ? 'Too short' : len <= 160 ? 'Optimal' : 'Too long';
+
+        html += '<div style="margin-bottom:16px;padding:16px;background:var(--bg3);border-radius:8px;border:1px solid var(--border);position:relative">' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">' +
+            '<span style="font-size:12px;color:var(--text3)">Option ' + (i+1) + '</span>' +
+            '<span style="font-size:12px;color:' + color + '">' + len + ' chars &mdash; ' + label + '</span>' +
+          '</div>' +
+          '<div style="font-size:14px;line-height:1.6;color:var(--text);margin-bottom:8px">' + escapeHtml(d) + '</div>' +
+          '<div style="display:flex;justify-content:space-between;align-items:center">' +
+            '<div style="height:4px;background:var(--border);border-radius:2px;flex:1;margin-right:12px">' +
+              '<div style="height:100%;width:' + Math.min(len/160*100, 100) + '%;background:' + color + ';border-radius:2px;transition:width 0.3s"></div>' +
+            '</div>' +
+            '<button class="btn" style="padding:4px 10px;font-size:11px" data-desc="' + escapeAttr(d) + '" onclick="copySingle(this)">Copy</button>' +
+          '</div>' +
+        '</div>';
+
+        html += '<div style="padding:12px 16px;background:#fff;border-radius:8px;margin-bottom:20px;font-family:Arial,sans-serif">' +
+          '<div style="color:#1a0dab;font-size:18px;cursor:pointer;margin-bottom:4px;text-decoration:none">' + topicCap + '</div>' +
+          '<div style="color:#006621;font-size:13px;margin-bottom:4px">https://example.com/' + topic.toLowerCase().replace(/\s+/g,'-') + '</div>' +
+          '<div style="color:#545454;font-size:13px;line-height:1.5">' + escapeHtml(d) + '</div>' +
+        '</div>';
+      }
+
+      var el = document.getElementById('output');
+      el.classList.remove('empty');
+      el.innerHTML = html;
+    }
+
+    function escapeHtml(text) {
+      var div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function escapeAttr(text) {
+      return text.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+
+    function copySingle(btn) {
+      var text = btn.getAttribute('data-desc');
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
