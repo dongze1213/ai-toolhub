@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Username Generator | AIToolHub</title>
+  <meta name="description" content="Generate unique, creative usernames for any platform. Choose from Professional, Creative, Gaming, and Social Media styles. Free, instant, no sign-up.">
+  <link rel="canonical" href="https://ai-toolhub-azure.vercel.app/tools/ai-username-generator">
+  <meta property="og:url" content="https://ai-toolhub-azure.vercel.app/tools/ai-username-generator">
+  <meta property="og:title" content="Free AI Username Generator | AIToolHub">
+  <meta property="og:description" content="Generate unique, creative usernames for any platform. Choose from Professional, Creative, Gaming, and Social Media styles. Free, instant, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F916;</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free AI Username Generator",
+    "description": "Free username generator with multiple style presets for any platform",
+    "brand": { "@type": "Brand", "name": "AIToolHub" },
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I check if a username is available?",
+        "acceptedAnswer": { "@type": "Answer", "text": "After generating usernames, copy your favorites and check availability on each platform directly. Most platforms show availability during sign-up." }
+      },      {
+        "@type": "Question",
+        "name": "What makes a good professional username?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A good professional username uses your real name (or close variation), avoids random numbers, and is consistent across LinkedIn, GitHub, Twitter, and other professional networks." }
+      },      {
+        "@type": "Question",
+        "name": "Can I generate gaming usernames?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes! Select the 'Gaming' style to get edgy, powerful-sounding usernames perfect for gaming platforms like Steam, Xbox, PlayStation, and Discord." }
+      },      {
+        "@type": "Question",
+        "name": "Are the generated usernames guaranteed to be available?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No, we generate usernames algorithmically but cannot check real-time availability on platforms. You will need to verify availability during sign-up." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#x1F916;</span>
+        <span>AIToolHub</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html#tools">AI Tools</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container tool-page">
+    <div class="tool-header">
+      <a href="../index.html" class="back-link">&larr; Back</a>
+      <h1>Free AI Username Generator</h1>
+      <span class="privacy-note">&#128274; 100% Private</span>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-input-panel">
+        <div class="input-group">
+          <label for="nameInput">Your Name or Keywords</label>
+          <input type="text" id="nameInput" class="input-field" placeholder="e.g. alex">
+        </div>
+        <div class="input-group">
+          <label for="style">Style</label>
+          <select id="style" class="input-field">
+            <option value="professional">Professional</option>
+            <option value="creative">Creative</option>
+            <option value="gaming">Gaming</option>
+            <option value="social" selected>Social Media</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="unameCount">Number of Usernames</label>
+          <select id="unameCount" class="input-field">
+            <option value="10" selected>10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+          </select>
+        </div>
+        <button class="btn-generate" onclick="generateUsernames()">&#127968; Generate Usernames</button>
+      </div>
+      <div class="calc-results-panel">
+        <div class="output-area" id="unameOutput">
+          <button class="copy-btn" onclick="copyUsernames()" style="position:relative;top:auto;right:auto;margin-bottom:12px;display:inline-block">&#128203; Copy All</button>
+          <div id="usernames" style="font-family:'SF Mono','Fira Code',monospace;font-size:14px;line-height:2"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <h2>About Username Generator</h2>
+      <p>Find the perfect username for any platform. Our generator creates unique, available-style usernames based on your name or keywords, tailored to your preferred style.</p>
+      <h3>Features</h3>
+      <ul>
+        <li>Four style presets: Professional, Creative, Gaming, Social Media</li>
+        <li>Generate 10-30 usernames at once</li>
+        <li>Smart algorithm combining prefixes, suffixes, separators, and word variations</li>
+        <li>One-click copy to clipboard</li>
+        <li>Works for any platform: Instagram, Twitter, TikTok, gaming, etc.</li>
+      </ul>
+      <h3>Username Tips</h3>
+      <p>Keep usernames under 15 characters for most platforms. Avoid too many numbers. Make it easy to spell and remember. Consistency across platforms helps build your personal brand.</p>
+    </div>
+
+    <div class="tool-about faq-section">
+      <h2>FAQ</h2>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> How do I check if a username is available?</div>
+        <div class="faq-answer">After generating usernames, copy your favorites and check availability on each platform directly. Most platforms show availability during sign-up.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> What makes a good professional username?</div>
+        <div class="faq-answer">A good professional username uses your real name (or close variation), avoids random numbers, and is consistent across LinkedIn, GitHub, Twitter, and other professional networks.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> Can I generate gaming usernames?</div>
+        <div class="faq-answer">Yes! Select the 'Gaming' style to get edgy, powerful-sounding usernames perfect for gaming platforms like Steam, Xbox, PlayStation, and Discord.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> Are the generated usernames guaranteed to be available?</div>
+        <div class="faq-answer">No, we generate usernames algorithmically but cannot check real-time availability on platforms. You will need to verify availability during sign-up.</div>
+      </div>
+    </div>
+  </main>
+
+  <section class="related-tools" style="max-width:900px;margin:2rem auto;padding:1.5rem;background:#1a1333;border-radius:12px;">
+    <h2 style="margin:0 0 1rem;font-size:1.1rem;color:#e0d5f5;">Related AI Tools</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+      <a href="ai-text-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Text Generator</a>
+      <a href="ai-prompt-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Prompt Generator</a>
+      <a href="ai-password-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Password Generator</a>
+      <a href="ai-lorem-ipsum-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Lorem Ipsum Generator</a>
+      <a href="ai-color-palette-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Color Palette Generator</a>
+      <a href="ai-meta-description-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Meta Description Generator</a>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="../privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+
+    function generateUsernames() {
+      var name = document.getElementById('nameInput').value.trim().toLowerCase().replace(/[^a-z0-9]/g,'');
+      var style = document.getElementById('style').value;
+      var count = parseInt(document.getElementById('unameCount').value);
+      if (!name) { document.getElementById('usernames').innerHTML = '<p style="color:var(--red)">Please enter a name or keywords.</p>'; return; }
+
+      var prefixes = { professional:['the','mr','im','its','hey'], creative:['cosmic','pixel','neo','aura','flux','zen','vox','luna'], gaming:['shadow','blade','storm','fury','dark','iron','neo','wolf'], social:['its','just','the','hey','only','real','not'] };
+      var suffixes = { professional:['_official','_pro','hq','.io','.co','dev','_works','digital'], creative:['xyz','verse','nova','flow','hub','lab','zone','craft'], gaming:['x','z','pro','king','lord','ops','strike','clan'], social:['daily','vibes','era','life','mood','fit','world','here'] };
+      var separators = ['','_','.','-'];
+
+      var results = [];
+      var used = {};
+      function add(u) {
+        if (u.length >= 3 && u.length <= 20 && !used[u]) { used[u] = true; results.push(u); }
+      }
+
+      var pre = prefixes[style]; var suf = suffixes[style]; var sep = separators;
+
+      // direct variations
+      add(name); add(name + Math.floor(Math.random()*99)+1);
+      for (var i = 0; i < 4 && results.length < count*2; i++) {
+        var r = Math.floor(Math.random()*999);
+        add(name + r);
+      }
+      // prefix + name + suffix
+      for (var i = 0; i < pre.length; i++) {
+        for (var j = 0; j < suf.length; j++) {
+          for (var k = 0; k < 2; k++) {
+            add(pre[i] + sep[k] + name + sep[0] + suf[j]);
+            add(name + sep[0] + pre[i] + suf[j]);
+          }
+        }
+      }
+      // doubled/tripled
+      add(name + name);
+      add(name + '_' + name);
+      // capitalize variations
+      var cap = name.charAt(0).toUpperCase() + name.slice(1);
+      add(cap + suf[Math.floor(Math.random()*suf.length)]);
+      add(pre[Math.floor(Math.random()*pre.length)] + cap);
+      // number suffixes
+      for (var i = 1; i <= 99 && results.length < count*2; i += 7) {
+        add(name + i);
+        add(cap + i);
+      }
+
+      var final = results.slice(0, count);
+      document.getElementById('usernames').innerHTML = final.map(function(u, i) {
+        return '<div style="padding:4px 0;border-bottom:1px solid var(--border)">' +
+          '<span style="color:var(--text3);margin-right:8px;font-size:12px">' + (i+1) + '.</span>' +
+          escapeHtml(u) + '</div>';
+      }).join('');
+    }
+
+    function escapeHtml(text) { var d = document.createElement('div'); d.textContent = text; return d.innerHTML; }
+
+    function copyUsernames() {
+      var text = document.getElementById('usernames').innerText;
+      navigator.clipboard.writeText(text).then(function() {
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.innerHTML = '&#128203; Copy All'; }, 2000);
+      });
+    }
+
+  </script>
+</body>
+</html>

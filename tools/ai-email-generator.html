@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Email Generator | AIToolHub</title>
+  <meta name="description" content="Generate professional emails for business, follow-ups, apologies and more. Free, no sign-up.">
+  <meta name="keywords" content="email generator, professional email generator, business email writer, email template">
+  <link rel="canonical" href="https://ai-toolhub-azure.vercel.app/tools/ai-email-generator">
+  <meta property="og:url" content="https://ai-toolhub-azure.vercel.app/tools/ai-email-generator">
+  <meta property="og:title" content="Free AI Email Generator | AIToolHub">
+  <meta property="og:description" content="Generate professional emails for business, follow-ups, apologies and more. Free, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F916;</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"AI Email Generator","description":"Generate professional emails for business, follow-ups, apologies and more. Free, no sign-up.","brand":{"@type":"Brand","name":"AIToolHub"},"applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[        {"@type":"Question","name":'What email types are available?',"acceptedAnswer":{"@type":"Answer","text":'Business, Follow-up, Thank You, Apology, Introduction, Resignation, and Meeting Request.'}},
+        {"@type":"Question","name":'Can I customize the tone?',"acceptedAnswer":{"@type":"Answer","text":'Yes. Choose Formal, Friendly, Direct, or Persuasive to match your style.'}},
+        {"@type":"Question","name":'How do I use the topic field?',"acceptedAnswer":{"@type":"Answer","text":"Enter a brief description like 'project delay' or 'partnership proposal' and the email will be customized around it."}},
+        {"@type":"Question","name":'Is it free?',"acceptedAnswer":{"@type":"Answer","text":'Completely free with no limits. Generate as many emails as you need.'}}]}
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">&#x1F916;</span><span>AIToolHub</span></a>
+      <nav class="nav"><a href="../index.html#tools">AI Tools</a><a href="../index.html#about">About</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <div class="tool-header">
+      <a href="../index.html" class="back-link">&larr; Back</a>
+      <h1>AI Email Generator</h1>
+      <span class="privacy-note">&#128274; 100% Private</span>
+    </div>
+<div class="calc-layout">
+      <div class="calc-input-panel">
+        <div class="input-group"><label for="emType">Email Type</label>
+          <select id="emType" class="input-field"><option>Business</option><option>Follow-up</option><option>Thank You</option><option>Apology</option><option>Introduction</option><option>Resignation</option><option>Meeting Request</option></select></div>
+        <div class="input-group"><label for="emTone">Tone</label>
+          <select id="emTone" class="input-field"><option>Formal</option><option>Friendly</option><option>Direct</option><option>Persuasive</option></select></div>
+        <div class="input-group"><label for="emTopic">Topic (optional)</label>
+          <input id="emTopic" class="input-field" placeholder="e.g. project update"></div>
+        <div class="input-group"><label for="emName">Your Name</label>
+          <input id="emName" class="input-field" placeholder="John Smith"></div>
+        <button class="btn-generate" onclick="genEM()">&#128231; Generate Email</button>
+      </div>
+      <div class="calc-results-panel">
+        <button class="copy-btn" onclick="copyRes('emOut')" style="margin-bottom:12px;display:inline-block">&#128203; Copy Email</button>
+        <div id="emOut" class="output-area" style="white-space:pre-wrap;line-height:1.6"></div>
+      </div>
+    </div>
+  <script>
+    var emTemplates = {
+      Business: { Formal: { sub: "RE: [Topic] - Formal Correspondence", body: "Dear Sir/Madam,\n\nI am writing regarding [topic]. I would like to bring to your attention the following key points:\n\n1. The current status and progress on this matter\n2. The proposed next steps and timeline\n3. Any questions or concerns that require clarification\n\nI would appreciate the opportunity to discuss this further at your earliest convenience. Please do not hesitate to contact me should you require any additional information.\n\nThank you for your time and consideration.\n\nBest regards,\n[name]"}, Friendly: { sub: "Checking in about [Topic]", body: "Hi there,\n\nHope you're doing well! I wanted to reach out about [topic].\n\nI've been thinking about this and have a few ideas I'd love to share. Would you be open to a quick chat this week?\n\nLooking forward to hearing from you!\n\nCheers,\n[name]"}, Direct: { sub: "[Topic] - Action Required", body: "Hi,\n\nRegarding [topic]:\n\nHere is the situation and what we need:\n- The deadline is approaching\n- We need a decision by end of week\n- Please confirm your availability\n\nLet me know if you have questions.\n\nThanks,\n[name]"}, Persuasive: { sub: "Opportunity: [Topic]", body: "Dear [Recipient],\n\nI have an exciting opportunity regarding [topic] that I believe could deliver significant value.\n\nKey benefits:\n- Increased efficiency by up to 40%\n- Cost reduction opportunities\n- Faster time to market\n\nThe data speaks for itself. I would love to present this in more detail. Are you available for a 15-minute call this week?\n\nBest,\n[name]"}},
+      "Follow-up": { Formal: { sub: "Follow-Up: [Topic]", body: "Dear Sir/Madam,\n\nI am following up on our previous correspondence regarding [topic]. I wanted to check whether there have been any developments or decisions made.\n\nI remain available to provide any additional information or clarification you may need.\n\nI look forward to hearing from you.\n\nBest regards,\n[name]"}, Friendly: { sub: "Just circling back on [Topic]", body: "Hey!\n\nJust wanted to circle back on [topic] from our last conversation. Have you had a chance to think about it?\n\nNo pressure at all, just wanted to keep the ball rolling. Let me know!\n\nBest,\n[name]"}, Direct: { sub: "Status Request: [Topic]", body: "Hi,\n\nFollowing up on [topic]. What is the current status? I need to report back to the team by end of week.\n\nThanks,\n[name]"}, Persuasive: { sub: "Don't miss out on [Topic]", body: "Hi,\n\nI wanted to follow up on [topic] with some additional information that strengthens the case:\n\n- Recent market trends support this approach\n- Competitors are already moving in this direction\n- Early adopters are seeing 3x returns\n\nThe window of opportunity is narrowing. Shall we schedule a discussion?\n\nBest,\n[name]"}},
+      "Thank You": { Formal: { sub: "Thank You - [Topic]", body: "Dear Sir/Madam,\n\nI would like to express my sincere gratitude regarding [topic]. Your support and collaboration have been invaluable.\n\nI truly appreciate the time and effort you have dedicated to this matter, and I look forward to our continued partnership.\n\nWith sincere thanks,\n[name]"}, Friendly: { sub: "Thank you so much!", body: "Hey!\n\nJust wanted to say a huge thank you for [topic]. It really made a difference and I appreciate you going out of your way.\n\nYou're awesome!\n\n[name]"}, Direct: { sub: "Thanks: [Topic]", body: "Hi,\n\nThank you for [topic]. Received and noted.\n\nThanks,\n[name]"}, Persuasive: { sub: "Your support made the difference", body: "Dear [Recipient],\n\nThank you sincerely for your support with [topic]. Your contribution was instrumental in achieving our goals.\n\nI would love to explore how we can build on this success together. The momentum we have created is just the beginning.\n\nWith gratitude,\n[name]"}},
+      Apology: { Formal: { sub: "Sincere Apologies Regarding [Topic]", body: "Dear Sir/Madam,\n\nI am writing to sincerely apologize regarding [topic]. I understand the impact this has had, and I take full responsibility.\n\nI have taken the following steps to prevent this from happening again:\n1. Reviewed our internal processes\n2. Implemented additional quality checks\n3. Scheduled a team review meeting\n\nI value our relationship and am committed to ensuring this does not recur.\n\nApologies,\n[name]"}, Friendly: { sub: "So sorry about [Topic]!", body: "Hey!\n\nI'm really sorry about [topic]. That was my bad and I want to make it right.\n\nLet me know what I can do to fix this. I owe you one!\n\nSorry again,\n[name]"}, Direct: { sub: "Apology: [Topic]", body: "Hi,\n\nI want to apologize for [topic]. This was my mistake and I take responsibility.\n\nI have already taken steps to ensure it does not happen again. Please let me know if there is anything else I can do.\n\nRegards,\n[name]"}, Persuasive: { sub: "Making things right: [Topic]", body: "Dear [Recipient],\n\nI want to personally apologize for [topic]. I understand this affected you and your team, and that is not the standard I hold myself to.\n\nTo make this right, I would like to offer [compensation/credit/discount]. Additionally, I have put new safeguards in place.\n\nI hope you will give us another chance to demonstrate our commitment to excellence.\n\nSincerely,\n[name]"}},
+      Introduction: { Formal: { sub: "Introduction - [name]", body: "Dear Sir/Madam,\n\nAllow me to introduce myself. My name is [name], and I am reaching out regarding [topic].\n\nWith [X] years of experience in this field, I believe there may be opportunities for mutually beneficial collaboration. I would welcome the chance to discuss this further.\n\nBest regards,\n[name]"}, Friendly: { sub: "Nice to meet you!", body: "Hi!\n\nI'm [name] and I wanted to introduce myself. I came across your work on [topic] and was really impressed!\n\nWould love to connect and chat sometime.\n\nCheers,\n[name]"}, Direct: { sub: "Introduction: [name] - [Topic]", body: "Hi,\n\nI am [name], reaching out about [topic]. I have relevant experience and would like to discuss a potential opportunity.\n\nAre you available for a brief call?\n\nThanks,\n[name]"}, Persuasive: { sub: "A partnership worth exploring", body: "Dear [Recipient],\n\nI am [name] and I have been following your work on [topic] with great interest.\n\nI believe there is a compelling opportunity for collaboration that could benefit both parties. Here is why:\n- Our complementary skill sets\n- Shared market vision\n- Combined we could reach 2x the audience\n\nI have attached a brief proposal for your review. Would you be open to a discussion?\n\nBest regards,\n[name]"}},
+      Resignation: { Formal: { sub: "Resignation - [name]", body: "Dear [Manager],\n\nPlease accept this letter as formal notification of my resignation from my position, effective [two weeks from date].\n\nI am grateful for the opportunities and experiences I have gained during my time here. I am committed to ensuring a smooth transition and will complete all pending tasks before my departure.\n\nThank you for your understanding and support.\n\nSincerely,\n[name]"}, Friendly: { sub: "Moving on - Thank you!", body: "Hi [Manager],\n\nThis is tough to write, but I wanted to let you know that I will be moving on to a new opportunity.\n\nI have loved working here and I am grateful for everything. I will make sure my transition is as smooth as possible.\n\nLet us stay in touch!\n\n[name]"}, Direct: { sub: "Resignation: [name]", body: "Hi [Manager],\n\nI am resigning from my position effective [two weeks from date].\n\nI will complete all handover tasks before my last day. Please let me know how you would like to handle the transition.\n\nRegards,\n[name]"}, Persuasive: { sub: "Thoughtful transition - Resignation", body: "Dear [Manager],\n\nAfter careful consideration, I have decided to resign from my position effective [two weeks from date].\n\nI want to ensure the best possible transition. I have prepared a detailed handover document and am happy to train my replacement during the notice period.\n\nI have genuinely valued my time here and hope we can maintain a positive relationship going forward.\n\nSincerely,\n[name]"}},
+      "Meeting Request": { Formal: { sub: "Meeting Request: [Topic]", body: "Dear Sir/Madam,\n\nI would like to request a meeting to discuss [topic]. I believe a face-to-face (or virtual) discussion would be beneficial for both parties.\n\nI am available on the following dates:\n- [Date 1]\n- [Date 2]\n- [Date 3]\n\nPlease let me know which time works best for you.\n\nBest regards,\n[name]"}, Friendly: { sub: "Let's chat about [Topic]!", body: "Hey!\n\nWould love to grab some time to chat about [topic]. I have some ideas I think you will like.\n\nWhat does your schedule look like this week or next?\n\nCheers,\n[name]"}, Direct: { sub: "Meeting: [Topic]", body: "Hi,\n\nI need to schedule a meeting about [topic]. This is time-sensitive.\n\nPlease share your availability for this week. A 30-minute call should suffice.\n\nThanks,\n[name]"}, Persuasive: { sub: "A meeting that could change things", body: "Dear [Recipient],\n\nI have been working on [topic] and have some findings I believe you will find very valuable.\n\nA brief 30-minute meeting could save us significant time and resources. The data shows clear opportunities that I would prefer to discuss in person.\n\nCould we schedule something this week?\n\nBest regards,\n[name]"}}
+    };
+    function genEM(){
+      var type=document.getElementById("emType").value;
+      var tone=document.getElementById("emTone").value;
+      var topic=document.getElementById("emTopic").value||"our recent discussion";
+      var name=document.getElementById("emName").value||"Your Name";
+      var tpl=(emTemplates[type]&&emTemplates[type][tone])||emTemplates["Business"]["Formal"];
+      var sub=tpl.sub.replace(/\[topic\]/gi,topic);
+      var body=tpl.body.replace(/\[name\]/gi,name).replace(/\[topic\]/gi,topic).replace(/\[recipient\]/gi,"Team");
+      document.getElementById("emOut").innerHTML="<div style='margin-bottom:8px;font-weight:700;color:#a78bfa;'>Subject: "+sub+"</div>"+body;
+    }
+    function copyRes(id){navigator.clipboard.writeText(document.getElementById(id).innerText).then(function(){var b=event.target;b.textContent="Copied!";setTimeout(function(){b.innerHTML="&#128203; Copy Email";},1500);})}
+    genEM();
+  </script>
+    <div class="tool-about">
+      <h2>About AI Email Generator</h2>
+      <p>Create professional emails instantly. Select type, tone, and add your topic to get a complete email with subject line.</p>
+      <h3>Features</h3>
+      <ul>        <li>7 email types</li>
+        <li>4 tone options</li>
+        <li>Topic customization</li>
+        <li>Complete subject + body</li></ul>
+    </div>
+    <div class="tool-about faq-section"><h2>FAQ</h2>      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-question"><span class="faq-arrow">&#9654;</span> What email types are available?</div><div class="faq-answer">Business, Follow-up, Thank You, Apology, Introduction, Resignation, and Meeting Request.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-question"><span class="faq-arrow">&#9654;</span> Can I customize the tone?</div><div class="faq-answer">Yes. Choose Formal, Friendly, Direct, or Persuasive to match your style.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-question"><span class="faq-arrow">&#9654;</span> How do I use the topic field?</div><div class="faq-answer">Enter a brief description like 'project delay' or 'partnership proposal' and the email will be customized around it.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-question"><span class="faq-arrow">&#9654;</span> Is it free?</div><div class="faq-answer">Completely free with no limits. Generate as many emails as you need.</div></div></div>
+  </main>
+  <section class="related-tools" style="max-width:900px;margin:2rem auto;padding:1.5rem;background:#1a1333;border-radius:12px;">
+    <h2 style="margin:0 0 1rem;font-size:1.1rem;color:#e0d5f5;">Related AI Tools</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;"><a href="ai-text-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Text Generator</a>
+<a href="ai-prompt-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Prompt Generator</a>
+<a href="ai-password-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Password Generator</a>
+<a href="ai-lorem-ipsum-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Lorem Ipsum Generator</a>
+<a href="ai-color-palette-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Color Palette Generator</a>
+<a href="ai-meta-description-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Meta Description Generator</a>
+<a href="ai-business-name-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Business Name Generator</a>
+<a href="ai-hashtag-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Hashtag Generator</a>
+<a href="ai-resume-summary-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Resume Summary Generator</a>
+<a href="ai-slogan-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Slogan Generator</a>
+<a href="ai-username-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Username Generator</a>
+<a href="ai-quote-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Quote Generator</a>
+<a href="ai-word-counter.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Word Counter</a></div>
+  </section>
+  <footer class="footer"><div class="container"><p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="../privacy.html">Privacy Policy</a></p></div></footer>
+</body>
+</html>

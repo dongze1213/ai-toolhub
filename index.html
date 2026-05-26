@@ -6,8 +6,8 @@
   <title>AIToolHub - Free AI Tools Online | AI Text Generator, Prompt Builder & More</title>
   <meta name="description" content="Free online AI-powered tools. AI text generator, prompt builder, password generator, lorem ipsum generator, color palette generator, and more. No sign-up required.">
   <meta name="keywords" content="AI tools, AI text generator, AI prompt generator, password generator, lorem ipsum generator, color palette generator, free AI tools, online tools">
-  <link rel="canonical" href="https://ai-toolhub.vercel.app/">
-  <meta property="og:url" content="https://ai-toolhub.vercel.app/">
+  <link rel="canonical" href="https://ai-toolhub-azure.vercel.app/">
+  <meta property="og:url" content="https://ai-toolhub-azure.vercel.app/">
   <meta property="og:title" content="AIToolHub - Free AI Tools Online">
   <meta property="og:description" content="Free online AI-powered tools. Text generator, prompt builder, password generator, and more. No sign-up, 100% free.">
   <meta property="og:type" content="website">
@@ -81,8 +81,27 @@
         <p class="hero-sub">Smart tools for text, prompts, passwords, design, and more. Instant results, 100% free.</p>
         <div class="trust-badge">
           <span class="badge-icon">&#10003;</span>
-          <span>50+ Tools &mdash; No sign-up, 100% browser-based</span>
+          <span>14 Tools &mdash; No sign-up, 100% browser-based</span>
         </div>
+      </div>
+    </section>
+
+    <section class="quick-tool-section" style="max-width:900px;margin:0 auto 2rem;padding:1.5rem;background:#1a1333;border-radius:12px;border:1px solid #2d2456;">
+      <h2 style="margin:0 0 1rem;font-size:1.1rem;text-align:center;color:#e0d5f5;">Quick Password Generator</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin-bottom:1rem;">
+        <div id="quickPw" style="flex:1;min-width:200px;padding:10px 14px;background:#241d3d;border-radius:8px;font-family:monospace;font-size:1rem;color:#a78bfa;text-align:center;word-break:break-all;user-select:all;letter-spacing:1px;">Click Generate</div>
+        <button onclick="quickPwGen()" style="padding:10px 20px;background:#7c3aed;color:#fff;border:none;border-radius:8px;font-size:0.9rem;cursor:pointer;white-space:nowrap;">Generate</button>
+        <button onclick="quickPwCopy()" style="padding:10px 16px;background:#3730a3;color:#c4b5fd;border:1px solid #4f46e5;border-radius:8px;font-size:0.9rem;cursor:pointer;white-space:nowrap;">Copy</button>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;">
+        <label style="display:flex;align-items:center;gap:4px;font-size:0.8rem;color:#a78bfa;">
+          Length: <input id="qpLen" type="range" min="8" max="32" value="16" oninput="quickPwGen()" style="width:80px;">
+          <span id="qpLenVal">16</span>
+        </label>
+        <label style="font-size:0.8rem;color:#a78bfa;"><input type="checkbox" checked onchange="quickPwGen()"> A-Z</label>
+        <label style="font-size:0.8rem;color:#a78bfa;"><input type="checkbox" checked onchange="quickPwGen()"> a-z</label>
+        <label style="font-size:0.8rem;color:#a78bfa;"><input type="checkbox" checked onchange="quickPwGen()"> 0-9</label>
+        <label style="font-size:0.8rem;color:#a78bfa;"><input type="checkbox" checked onchange="quickPwGen()"> !@#$</label>
       </div>
     </section>
 
@@ -98,18 +117,40 @@
             <p>Generate paragraphs, sentences, and creative text instantly. Perfect for content creation, brainstorming, and placeholder text.</p>
             <span class="tool-tag gold">Popular</span>
           </a>
-
           <a href="./tools/ai-lorem-ipsum-generator.html" class="tool-card">
             <div class="tool-icon">&#128196;</div>
             <h3>Lorem Ipsum Generator</h3>
             <p>Generate placeholder text in paragraphs, sentences, or words. Classic and modern variations for your design mockups.</p>
             <span class="tool-tag gold">Popular</span>
           </a>
-
           <a href="./tools/ai-meta-description-generator.html" class="tool-card">
             <div class="tool-icon">&#128269;</div>
             <h3>Meta Description Generator</h3>
             <p>Create SEO-optimized meta descriptions for any topic. Auto-checks character count and includes target keywords.</p>
+          </a>
+          <a href="./tools/ai-email-generator.html" class="tool-card">
+            <div class="tool-icon">&#128231;</div>
+            <h3>AI Email Generator</h3>
+            <p>Generate professional emails for business, follow-ups, apologies, and more. Customizable tone and length.</p>
+            <span class="tool-tag pink">New</span>
+          </a>
+          <a href="./tools/ai-resume-summary-generator.html" class="tool-card">
+            <div class="tool-icon">&#128188;</div>
+            <h3>Resume Summary Generator</h3>
+            <p>Create compelling resume summaries tailored to your job title, experience, and skills. Multiple variations.</p>
+            <span class="tool-tag pink">New</span>
+          </a>
+          <a href="./tools/ai-quote-generator.html" class="tool-card">
+            <div class="tool-icon">&#128172;</div>
+            <h3>AI Quote Generator</h3>
+            <p>Get inspiring quotes from famous authors, leaders, and thinkers. Categories: motivation, life, success, and more.</p>
+            <span class="tool-tag pink">New</span>
+          </a>
+          <a href="./tools/ai-word-counter.html" class="tool-card">
+            <div class="tool-icon">&#128221;</div>
+            <h3>Word Counter</h3>
+            <p>Count words, characters, sentences, paragraphs, and estimate reading time in real-time as you type or paste text.</p>
+            <span class="tool-tag blue">Essential</span>
           </a>
         </div>
 
@@ -120,6 +161,34 @@
             <h3>AI Prompt Generator</h3>
             <p>Build perfect prompts for ChatGPT, Midjourney, DALL-E, and more. Includes templates for writing, coding, art, and brainstorming.</p>
             <span class="tool-tag gold">Popular</span>
+          </a>
+          <a href="./tools/ai-business-name-generator.html" class="tool-card">
+            <div class="tool-icon">&#127970;</div>
+            <h3>Business Name Generator</h3>
+            <p>Generate creative business name ideas filtered by industry and style. Perfect for startups and brand naming.</p>
+            <span class="tool-tag pink">New</span>
+          </a>
+          <a href="./tools/ai-slogan-generator.html" class="tool-card">
+            <div class="tool-icon">&#127919;</div>
+            <h3>AI Slogan Generator</h3>
+            <p>Create catchy slogans and taglines for your brand or product. Multiple styles: catchy, professional, playful, bold.</p>
+            <span class="tool-tag pink">New</span>
+          </a>
+        </div>
+
+        <div class="category-label" style="margin-top: 32px;">Social Media</div>
+        <div class="tools-grid">
+          <a href="./tools/ai-hashtag-generator.html" class="tool-card">
+            <div class="tool-icon">&#128247;</div>
+            <h3>Hashtag Generator</h3>
+            <p>Generate trending hashtags for Instagram, Twitter, TikTok, and LinkedIn. Expand keywords into relevant hashtag sets.</p>
+            <span class="tool-tag pink">New</span>
+          </a>
+          <a href="./tools/ai-username-generator.html" class="tool-card">
+            <div class="tool-icon">&#128100;</div>
+            <h3>Username Generator</h3>
+            <p>Find unique username ideas for any platform. Styles: cool, funny, professional, aesthetic. Gaming, social, and more.</p>
+            <span class="tool-tag pink">New</span>
           </a>
         </div>
 
@@ -139,7 +208,6 @@
             <div class="tool-icon">&#127912;</div>
             <h3>Color Palette Generator</h3>
             <p>Create beautiful color palettes from a base color. Export as HEX, RGB, HSL. View palettes in UI component previews.</p>
-            <span class="tool-tag pink">New</span>
           </a>
         </div>
 
@@ -184,5 +252,31 @@
       <p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="./privacy.html">Privacy Policy</a></p>
     </div>
   </footer>
+  <script>
+    function quickPwGen() {
+      var len = parseInt(document.getElementById('qpLen').value);
+      document.getElementById('qpLenVal').textContent = len;
+      var boxes = document.querySelectorAll('.quick-tool-section input[type=checkbox]');
+      var cs = '';
+      if (boxes[0].checked) cs += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      if (boxes[1].checked) cs += 'abcdefghijklmnopqrstuvwxyz';
+      if (boxes[2].checked) cs += '0123456789';
+      if (boxes[3].checked) cs += '!@#$%^&*_+-=';
+      if (!cs) cs = 'abcdefghijklmnopqrstuvwxyz';
+      var arr = new Uint32Array(len);
+      crypto.getRandomValues(arr);
+      var pw = '';
+      for (var i = 0; i < len; i++) pw += cs[arr[i] % cs.length];
+      document.getElementById('quickPw').textContent = pw;
+    }
+    function quickPwCopy() {
+      var t = document.getElementById('quickPw').textContent;
+      navigator.clipboard.writeText(t).then(function() {
+        var btn = event.target; btn.textContent = 'Copied!';
+        setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+      });
+    }
+    quickPwGen();
+  </script>
 </body>
 </html>

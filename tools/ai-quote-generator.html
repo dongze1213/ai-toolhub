@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Quote Generator | AIToolHub</title>
+  <meta name="description" content="Browse and generate inspiring quotes from famous thinkers. Filter by category: Motivation, Success, Life, Leadership, Creativity. Free, instant, one-click copy.">
+  <link rel="canonical" href="https://ai-toolhub-azure.vercel.app/tools/ai-quote-generator">
+  <meta property="og:url" content="https://ai-toolhub-azure.vercel.app/tools/ai-quote-generator">
+  <meta property="og:title" content="Free AI Quote Generator | AIToolHub">
+  <meta property="og:description" content="Browse and generate inspiring quotes from famous thinkers. Filter by category: Motivation, Success, Life, Leadership, Creativity. Free, instant, one-click copy.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F916;</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free AI Quote Generator",
+    "description": "Free inspirational quote generator with category filtering",
+    "brand": { "@type": "Brand", "name": "AIToolHub" },
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are these real quotes from famous people?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, all quotes are attributed to their original authors including Steve Jobs, Albert Einstein, Maya Angelou, and many other notable figures." }
+      },      {
+        "@type": "Question",
+        "name": "Can I use these quotes on social media?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Generally yes — short attributed quotes fall under fair use. Always credit the original author when sharing." }
+      },      {
+        "@type": "Question",
+        "name": "How many quotes are in the database?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our database contains 30+ curated quotes across 5 categories. We handpick only the most impactful and authentic quotes." }
+      },      {
+        "@type": "Question",
+        "name": "Can I suggest a quote to add?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Currently we do not accept submissions, but we regularly review and expand our collection." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#x1F916;</span>
+        <span>AIToolHub</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html#tools">AI Tools</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container tool-page">
+    <div class="tool-header">
+      <a href="../index.html" class="back-link">&larr; Back</a>
+      <h1>Free AI Quote Generator</h1>
+      <span class="privacy-note">&#128274; 100% Private</span>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-input-panel">
+        <div class="input-group">
+          <label for="category">Category</label>
+          <select id="category" class="input-field" onchange="filterQuotes()">
+            <option value="all">All Categories</option>
+            <option value="motivation">Motivation</option>
+            <option value="success">Success</option>
+            <option value="life">Life</option>
+            <option value="leadership">Leadership</option>
+            <option value="creativity">Creativity</option>
+          </select>
+        </div>
+        <button class="btn-generate" onclick="randomQuote()">&#127922; Random Quote</button>
+      </div>
+      <div class="calc-results-panel">
+        <div id="quoteDisplay" style="text-align:center;padding:2rem 1rem">
+          <div id="quoteText" style="font-size:1.4rem;font-style:italic;line-height:1.6;color:var(--text);min-height:80px"></div>
+          <div id="quoteAuthor" style="margin-top:1rem;font-size:1.1rem;color:var(--accent);font-weight:600"></div>
+          <div id="quoteCategory" style="margin-top:0.5rem;font-size:0.85rem;color:var(--text3)"></div>
+          <button class="copy-btn" onclick="copyQuote()" style="margin-top:1.5rem;position:relative;top:auto;right:auto;display:inline-block">&#128203; Copy Quote</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <h2>About Quote Generator</h2>
+      <p>Discover inspiring quotes from history's greatest minds. Browse by category or generate random quotes for daily motivation, social media posts, or presentations.</p>
+      <h3>Features</h3>
+      <ul>
+        <li>30+ carefully curated famous quotes from renowned thinkers and leaders</li>
+        <li>5 categories: Motivation, Success, Life, Leadership, Creativity</li>
+        <li>Filter by category or generate random quotes</li>
+        <li>One-click copy for sharing on social media</li>
+        <li>Beautiful, readable display optimized for sharing</li>
+      </ul>
+      <h3>Categories</h3>
+      <p><strong>Motivation:</strong> Quotes to fuel your drive and keep you going. <strong>Success:</strong> Wisdom from those who achieved greatness. <strong>Life:</strong> Perspectives on living meaningfully. <strong>Leadership:</strong> Insights on guiding and inspiring others. <strong>Creativity:</strong> Quotes to spark innovation and imagination.</p>
+    </div>
+
+    <div class="tool-about faq-section">
+      <h2>FAQ</h2>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> Are these real quotes from famous people?</div>
+        <div class="faq-answer">Yes, all quotes are attributed to their original authors including Steve Jobs, Albert Einstein, Maya Angelou, and many other notable figures.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> Can I use these quotes on social media?</div>
+        <div class="faq-answer">Generally yes — short attributed quotes fall under fair use. Always credit the original author when sharing.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> How many quotes are in the database?</div>
+        <div class="faq-answer">Our database contains 30+ curated quotes across 5 categories. We handpick only the most impactful and authentic quotes.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> Can I suggest a quote to add?</div>
+        <div class="faq-answer">Currently we do not accept submissions, but we regularly review and expand our collection.</div>
+      </div>
+    </div>
+  </main>
+
+  <section class="related-tools" style="max-width:900px;margin:2rem auto;padding:1.5rem;background:#1a1333;border-radius:12px;">
+    <h2 style="margin:0 0 1rem;font-size:1.1rem;color:#e0d5f5;">Related AI Tools</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+      <a href="ai-text-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Text Generator</a>
+      <a href="ai-prompt-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Prompt Generator</a>
+      <a href="ai-password-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Password Generator</a>
+      <a href="ai-lorem-ipsum-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Lorem Ipsum Generator</a>
+      <a href="ai-color-palette-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Color Palette Generator</a>
+      <a href="ai-meta-description-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Meta Description Generator</a>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="../privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+
+    var quotes = [
+      {text:"The only way to do great work is to love what you do.", author:"Steve Jobs", category:"motivation"},
+      {text:"Innovation distinguishes between a leader and a follower.", author:"Steve Jobs", category:"leadership"},
+      {text:"Stay hungry, stay foolish.", author:"Steve Jobs", category:"motivation"},
+      {text:"Imagination is more important than knowledge.", author:"Albert Einstein", category:"creativity"},
+      {text:"Life is what happens when you are busy making other plans.", author:"John Lennon", category:"life"},
+      {text:"The future belongs to those who believe in the beauty of their dreams.", author:"Eleanor Roosevelt", category:"motivation"},
+      {text:"Success is not final, failure is not fatal: it is the courage to continue that counts.", author:"Winston Churchill", category:"success"},
+      {text:"The best time to plant a tree was 20 years ago. The second best time is now.", author:"Chinese Proverb", category:"motivation"},
+      {text:"It is during our darkest moments that we must focus to see the light.", author:"Aristotle", category:"motivation"},
+      {text:"Creativity is intelligence having fun.", author:"Albert Einstein", category:"creativity"},
+      {text:"The only impossible journey is the one you never begin.", author:"Tony Robbins", category:"motivation"},
+      {text:"Believe you can and you are halfway there.", author:"Theodore Roosevelt", category:"motivation"},
+      {text:"In the middle of difficulty lies opportunity.", author:"Albert Einstein", category:"success"},
+      {text:"I have not failed. I have just found 10,000 ways that will not work.", author:"Thomas Edison", category:"success"},
+      {text:"The purpose of our lives is to be happy.", author:"Dalai Lama", category:"life"},
+      {text:"Life is really simple, but we insist on making it complicated.", author:"Confucius", category:"life"},
+      {text:"The unexamined life is not worth living.", author:"Socrates", category:"life"},
+      {text:"Turn your wounds into wisdom.", author:"Oprah Winfrey", category:"life"},
+      {text:"Leadership is not about being in charge. It is about taking care of those in your charge.", author:"Simon Sinek", category:"leadership"},
+      {text:"A leader is one who knows the way, goes the way, and shows the way.", author:"John C. Maxwell", category:"leadership"},
+      {text:"Before you are a leader, success is all about growing yourself. When you become a leader, success is all about growing others.", author:"Jack Welch", category:"leadership"},
+      {text:"The greatest leader is not the one who does the greatest things, but the one who gets people to do the greatest things.", author:"Ronald Reagan", category:"leadership"},
+      {text:"Creativity takes courage.", author:"Henri Matisse", category:"creativity"},
+      {text:"Every child is an artist. The problem is how to remain an artist once we grow up.", author:"Pablo Picasso", category:"creativity"},
+      {text:"The chief enemy of creativity is good sense.", author:"Pablo Picasso", category:"creativity"},
+      {text:"Art is not what you see, but what you make others see.", author:"Edgar Degas", category:"creativity"},
+      {text:"Don't watch the clock; do what it does. Keep going.", author:"Sam Levenson", category:"motivation"},
+      {text:"Everything you have ever wanted is on the other side of fear.", author:"George Addair", category:"motivation"},
+      {text:"Success usually comes to those who are too busy to be looking for it.", author:"Henry David Thoreau", category:"success"},
+      {text:"Try not to become a person of success, but rather try to become a person of value.", author:"Albert Einstein", category:"success"},
+      {text:"The mind is everything. What you think you become.", author:"Buddha", category:"life"},
+      {text:"An unexamined life is not worth living.", author:"Socrates", category:"life"},
+    ];
+
+    var lastQuote = -1;
+    function randomQuote() {
+      var cat = document.getElementById('category').value;
+      var pool = cat === 'all' ? quotes : quotes.filter(function(q){return q.category===cat});
+      var idx;
+      do { idx = Math.floor(Math.random()*pool.length); } while (pool.length > 1 && idx === lastQuote);
+      lastQuote = idx;
+      showQuote(pool[idx]);
+    }
+
+    function filterQuotes() { randomQuote(); }
+
+    function showQuote(q) {
+      document.getElementById('quoteText').textContent = '"' + q.text + '"';
+      document.getElementById('quoteAuthor').textContent = '— ' + q.author;
+      document.getElementById('quoteCategory').textContent = q.category.charAt(0).toUpperCase() + q.category.slice(1);
+    }
+
+    function copyQuote() {
+      var text = document.getElementById('quoteText').textContent + ' ' + document.getElementById('quoteAuthor').textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        var btn = document.querySelector('#quoteDisplay .copy-btn');
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.innerHTML = '&#128203; Copy Quote'; }, 2000);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', randomQuote);
+
+  </script>
+</body>
+</html>

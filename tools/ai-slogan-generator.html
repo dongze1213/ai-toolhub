@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Slogan Generator | AIToolHub</title>
+  <meta name="description" content="Generate catchy slogans for your brand or product instantly. Multiple tones, keyword integration, and unlimited free generations. No sign-up needed.">
+  <link rel="canonical" href="https://ai-toolhub-azure.vercel.app/tools/ai-slogan-generator">
+  <meta property="og:url" content="https://ai-toolhub-azure.vercel.app/tools/ai-slogan-generator">
+  <meta property="og:title" content="Free AI Slogan Generator | AIToolHub">
+  <meta property="og:description" content="Generate catchy slogans for your brand or product instantly. Multiple tones, keyword integration, and unlimited free generations. No sign-up needed.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F916;</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free AI Slogan Generator",
+    "description": "Free slogan generator with multiple tone options and keyword customization",
+    "brand": { "@type": "Brand", "name": "AIToolHub" },
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What makes a good slogan?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A good slogan is short (3-7 words), memorable, unique to the brand, and communicates a key benefit or emotion. It should be easy to say and recall." }
+      },      {
+        "@type": "Question",
+        "name": "How many slogans should I generate?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We recommend generating multiple rounds and picking 2-3 finalists. Test them with friends or a small audience before committing." }
+      },      {
+        "@type": "Question",
+        "name": "Can I use these slogans commercially?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, the slogans generated are free to use. However, we recommend checking trademark databases to ensure no conflicts with existing brands." }
+      },      {
+        "@type": "Question",
+        "name": "What tones work best for different industries?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Professional tones suit B2B and finance. Catchy works well for consumer products. Playful fits entertainment and apps. Bold is great for sports and fitness." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#x1F916;</span>
+        <span>AIToolHub</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html#tools">AI Tools</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container tool-page">
+    <div class="tool-header">
+      <a href="../index.html" class="back-link">&larr; Back</a>
+      <h1>Free AI Slogan Generator</h1>
+      <span class="privacy-note">&#128274; 100% Private</span>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-input-panel">
+        <div class="input-group">
+          <label for="brandName">Brand / Product Name</label>
+          <input type="text" id="brandName" class="input-field" placeholder="e.g. ZenTech">
+        </div>
+        <div class="input-group">
+          <label for="keywords">Keywords (optional)</label>
+          <input type="text" id="keywords" class="input-field" placeholder="e.g. fast, smart, reliable">
+        </div>
+        <div class="input-group">
+          <label for="tone">Tone</label>
+          <select id="tone" class="input-field">
+            <option value="professional">Professional</option>
+            <option value="catchy">Catchy</option>
+            <option value="playful">Playful</option>
+            <option value="bold">Bold</option>
+            <option value="inspirational">Inspirational</option>
+          </select>
+        </div>
+        <button class="btn-generate" onclick="generateSlogans()">&#9997; Generate Slogans</button>
+      </div>
+      <div class="calc-results-panel">
+        <div class="output-area" id="sloganOutput">
+          <button class="copy-btn" onclick="copySlogans()" style="position:relative;top:auto;right:auto;margin-bottom:12px;display:inline-block">&#128203; Copy All</button>
+          <div id="slogans" style="font-size:15px;line-height:1.8"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <h2>About Slogan Generator</h2>
+      <p>Generate catchy, memorable slogans for your brand, product, or campaign instantly. Our algorithm combines proven copywriting patterns with your brand name and keywords to produce slogans that stick.</p>
+      <h3>Features</h3>
+      <ul>
+        <li>Multiple tone options: Professional, Catchy, Playful, Bold, Inspirational</li>
+        <li>Generates 8-10 unique slogans per request</li>
+        <li>Optionally incorporate custom keywords</li>
+        <li>One-click copy any slogan or copy all</li>
+        <li>100% free, no sign-up required</li>
+      </ul>
+      <h3>Tips for Great Slogans</h3>
+      <p>Keep it short and memorable. Focus on one key benefit. Use action words. Make it rhythmically pleasing. Test it by saying it out loud — if it rolls off the tongue easily, it will stick in people's minds.</p>
+    </div>
+
+    <div class="tool-about faq-section">
+      <h2>FAQ</h2>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> What makes a good slogan?</div>
+        <div class="faq-answer">A good slogan is short (3-7 words), memorable, unique to the brand, and communicates a key benefit or emotion. It should be easy to say and recall.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> How many slogans should I generate?</div>
+        <div class="faq-answer">We recommend generating multiple rounds and picking 2-3 finalists. Test them with friends or a small audience before committing.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> Can I use these slogans commercially?</div>
+        <div class="faq-answer">Yes, the slogans generated are free to use. However, we recommend checking trademark databases to ensure no conflicts with existing brands.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> What tones work best for different industries?</div>
+        <div class="faq-answer">Professional tones suit B2B and finance. Catchy works well for consumer products. Playful fits entertainment and apps. Bold is great for sports and fitness.</div>
+      </div>
+    </div>
+  </main>
+
+  <section class="related-tools" style="max-width:900px;margin:2rem auto;padding:1.5rem;background:#1a1333;border-radius:12px;">
+    <h2 style="margin:0 0 1rem;font-size:1.1rem;color:#e0d5f5;">Related AI Tools</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+      <a href="ai-text-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Text Generator</a>
+      <a href="ai-prompt-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Prompt Generator</a>
+      <a href="ai-password-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Password Generator</a>
+      <a href="ai-lorem-ipsum-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Lorem Ipsum Generator</a>
+      <a href="ai-color-palette-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Color Palette Generator</a>
+      <a href="ai-meta-description-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Meta Description Generator</a>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="../privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+
+    function generateSlogans() {
+      var brand = document.getElementById('brandName').value.trim();
+      var keywords = document.getElementById('keywords').value.trim().toLowerCase();
+      var tone = document.getElementById('tone').value;
+      if (!brand) { document.getElementById('slogans').innerHTML = '<p style="color:var(--red)">Please enter a brand name.</p>'; return; }
+
+      var kw = keywords ? keywords.split(',').map(function(k){return k.trim()}).filter(Boolean) : [];
+      var templates = {
+        professional: [
+          "The {kw} choice for {brand}.", "Where {kw} meets excellence — {brand}.",
+          "{brand}: {kw} solutions you can trust.", "Leading the way in {kw} — {brand}.",
+          "{brand}. Built for those who demand {kw}.", "{kw}, redefined by {brand}.",
+          "{brand}: Your partner in {kw}.", "Precision {kw}, powered by {brand}.",
+          "Elevate your {kw} with {brand}.", "{brand} — because {kw} matters."
+        ],
+        catchy: [
+          "Get {kw} with {brand}!", "{brand}: {kw} made easy.",
+          "Think {kw}. Think {brand}.", "{brand} — grab the {kw}!",
+          "Why settle? {brand} is {kw}.", "{kw} in every bite — {brand}.",
+          "{brand}: {kw} that clicks.", "Your {kw} superpower — {brand}.",
+          "{brand} — feel the {kw}.", "{kw}? Sorted. Thanks, {brand}."
+        ],
+        playful: [
+          "{brand} — because boring is so yesterday.", "Spice up your {kw} with {brand}!",
+          "{brand}: Making {kw} fun again.", "Oops, you just found the best {kw} — {brand}.",
+          "{brand}: Serious about {kw}, not about itself.", "Yo, {kw} just got a glow-up — {brand}.",
+          "{brand}: Where {kw} has more fun.", "{kw}? {brand} says 'challenge accepted.'",
+          "Plot twist: {kw} is actually enjoyable with {brand}.", "{brand}: Putting the 'ta-da' in {kw}."
+        ],
+        bold: [
+          "Dominate {kw} with {brand}.", "{brand}: Unapologetically {kw}.",
+          "Not just {kw}. {brand} {kw}.", "{brand} — the {kw} standard.",
+          "Born to be {kw}. Built by {brand}.", "{kw} has a new name: {brand}.",
+          "{brand}: Own your {kw}.", "Don't follow {kw}. Define it with {brand}.",
+          "{brand}. Fearless {kw}.", "{kw}, unleashed by {brand}."
+        ],
+        inspirational: [
+          "{brand}: Empowering your {kw} journey.", "Dream bigger with {brand} {kw}.",
+          "{brand}: Where {kw} transforms lives.", "Your {kw} starts here — {brand}.",
+          "{brand}: Inspiring {kw}, one step at a time.", "Believe in {kw}. Believe in {brand}.",
+          "{brand}: Fueling your {kw} passion.", "Because you deserve better {kw} — {brand}.",
+          "{brand}: The future of {kw} is you.", "Transform your {kw} with {brand}."
+        ]
+      };
+
+      var tpls = templates[tone] || templates.professional;
+      var defaultKw = kw.length ? kw[0] : 'quality';
+      var results = [];
+      var used = {};
+      tpls.forEach(function(t) {
+        var s = t.replace(/\{brand\}/g, brand);
+        if (kw.length > 0) {
+          kw.forEach(function(k) {
+            var variant = t.replace(/\{brand\}/g, brand).replace(/\{kw\}/g, k);
+            if (!used[variant]) { used[variant] = true; results.push(variant); }
+          });
+        } else {
+          var variant = s.replace(/\{kw\}/g, defaultKw);
+          if (!used[variant]) { used[variant] = true; results.push(variant); }
+        }
+      });
+
+      var final = results.slice(0, 10);
+      document.getElementById('slogans').innerHTML = final.map(function(s, i) {
+        return '<div style="padding:8px 0;border-bottom:1px solid var(--border)">' +
+          '<span style="color:var(--text3);margin-right:8px;font-size:12px">' + (i+1) + '.</span>' +
+          escapeHtml(s) + '</div>';
+      }).join('');
+    }
+
+    function escapeHtml(text) {
+      var div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function copySlogans() {
+      var text = document.getElementById('slogans').innerText;
+      navigator.clipboard.writeText(text).then(function() {
+        var btn = document.querySelector('.copy-btn');
+        btn.textContent = '✓ Copied!';
+        setTimeout(function() { btn.innerHTML = '&#128203; Copy All'; }, 2000);
+      });
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Word Counter | Character, Sentence & Reading Time Counter | AIToolHub</title>
+  <meta name="description" content="Count words, characters, sentences, and paragraphs instantly. Estimate reading and speaking time. Free, real-time, private text analysis tool.">
+  <link rel="canonical" href="https://ai-toolhub-azure.vercel.app/tools/ai-word-counter">
+  <meta property="og:url" content="https://ai-toolhub-azure.vercel.app/tools/ai-word-counter">
+  <meta property="og:title" content="Free Word Counter | Character, Sentence & Reading Time Counter | AIToolHub">
+  <meta property="og:description" content="Count words, characters, sentences, and paragraphs instantly. Estimate reading and speaking time. Free, real-time, private text analysis tool.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F916;</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Word Counter | Character, Sentence & Reading Time Counter",
+    "description": "Free word counter with character count, sentence count, and reading time estimation",
+    "brand": { "@type": "Brand", "name": "AIToolHub" },
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is reading time calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Reading time is estimated at 200 words per minute, which is the average adult reading speed for non-technical content." }
+      },      {
+        "@type": "Question",
+        "name": "How is speaking time calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Speaking time is estimated at 130 words per minute, the average pace for a comfortable presentation or speech." }
+      },      {
+        "@type": "Question",
+        "name": "How are words counted?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Words are counted by splitting text on whitespace and filtering out empty strings. This matches the standard behavior of most word processors." }
+      },      {
+        "@type": "Question",
+        "name": "How are sentences counted?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Sentences are detected by splitting on periods, exclamation marks, and question marks followed by a space or end of text." }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#x1F916;</span>
+        <span>AIToolHub</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html#tools">AI Tools</a>
+        <a href="../index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container tool-page">
+    <div class="tool-header">
+      <a href="../index.html" class="back-link">&larr; Back</a>
+      <h1>Free Word Counter | Character, Sentence & Reading Time Counter</h1>
+      <span class="privacy-note">&#128274; 100% Private</span>
+    </div>
+
+    <div class="calc-layout">
+      <div class="calc-input-panel">
+        <div class="input-group">
+          <label for="textInput">Enter or Paste Your Text</label>
+          <textarea id="textInput" class="input-field" rows="8" placeholder="Start typing or paste your text here..." oninput="analyzeText()" style="resize:vertical;min-height:120px;font-size:14px;line-height:1.6"></textarea>
+          <button onclick="document.getElementById('textInput').value='';analyzeText()" style="margin-top:8px;padding:6px 16px;background:var(--bg3);color:var(--text3);border:none;border-radius:6px;cursor:pointer;font-size:13px">Clear</button>
+        </div>
+      </div>
+      <div class="calc-results-panel">
+        <div id="statsDisplay">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:var(--bg2);padding:16px;border-radius:8px;text-align:center">
+              <div style="font-size:1.8rem;font-weight:700;color:var(--accent)" id="wordCount">0</div>
+              <div style="font-size:0.85rem;color:var(--text3)">Words</div>
+            </div>
+            <div style="background:var(--bg2);padding:16px;border-radius:8px;text-align:center">
+              <div style="font-size:1.8rem;font-weight:700;color:var(--accent)" id="charCount">0</div>
+              <div style="font-size:0.85rem;color:var(--text3)">Characters</div>
+            </div>
+            <div style="background:var(--bg2);padding:16px;border-radius:8px;text-align:center">
+              <div style="font-size:1.8rem;font-weight:700;color:var(--accent)" id="charNoSpace">0</div>
+              <div style="font-size:0.85rem;color:var(--text3)">Characters (no spaces)</div>
+            </div>
+            <div style="background:var(--bg2);padding:16px;border-radius:8px;text-align:center">
+              <div style="font-size:1.8rem;font-weight:700;color:var(--accent)" id="sentenceCount">0</div>
+              <div style="font-size:0.85rem;color:var(--text3)">Sentences</div>
+            </div>
+            <div style="background:var(--bg2);padding:16px;border-radius:8px;text-align:center">
+              <div style="font-size:1.8rem;font-weight:700;color:var(--accent)" id="paraCount">0</div>
+              <div style="font-size:0.85rem;color:var(--text3)">Paragraphs</div>
+            </div>
+            <div style="background:var(--bg2);padding:16px;border-radius:8px;text-align:center">
+              <div style="font-size:1.8rem;font-weight:700;color:var(--accent)" id="avgWordLen">0</div>
+              <div style="font-size:0.85rem;color:var(--text3)">Avg Word Length</div>
+            </div>
+          </div>
+          <div style="margin-top:16px;padding:12px 16px;background:var(--bg2);border-radius:8px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+            <div><span style="color:var(--text3);font-size:0.85rem">Reading Time:</span> <strong id="readTime">0 min</strong></div>
+            <div><span style="color:var(--text3);font-size:0.85rem">Speaking Time:</span> <strong id="speakTime">0 min</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-about">
+      <h2>About Word Counter</h2>
+      <p>Analyze your text instantly with our comprehensive word counter. Get detailed statistics including word count, character count, sentence count, paragraph count, average word length, and estimated reading/speaking time.</p>
+      <h3>Features</h3>
+      <ul>
+        <li>Real-time analysis as you type — no button needed</li>
+        <li>Word, character (with/without spaces), sentence, and paragraph counts</li>
+        <li>Average word length calculation</li>
+        <li>Reading time estimate (based on 200 WPM average)</li>
+        <li>Speaking time estimate (based on 130 WPM average)</li>
+        <li>Completely free and private — all processing in your browser</li>
+      </ul>
+      <h3>Common Use Cases</h3>
+      <p>Bloggers checking post length. Students meeting essay word limits. Copywriters crafting the perfect tweet. Speakers timing their presentations. SEO professionals optimizing meta descriptions and content length.</p>
+    </div>
+
+    <div class="tool-about faq-section">
+      <h2>FAQ</h2>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> How is reading time calculated?</div>
+        <div class="faq-answer">Reading time is estimated at 200 words per minute, which is the average adult reading speed for non-technical content.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> How is speaking time calculated?</div>
+        <div class="faq-answer">Speaking time is estimated at 130 words per minute, the average pace for a comfortable presentation or speech.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> How are words counted?</div>
+        <div class="faq-answer">Words are counted by splitting text on whitespace and filtering out empty strings. This matches the standard behavior of most word processors.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question"><span class="faq-arrow">&#9654;</span> How are sentences counted?</div>
+        <div class="faq-answer">Sentences are detected by splitting on periods, exclamation marks, and question marks followed by a space or end of text.</div>
+      </div>
+    </div>
+  </main>
+
+  <section class="related-tools" style="max-width:900px;margin:2rem auto;padding:1.5rem;background:#1a1333;border-radius:12px;">
+    <h2 style="margin:0 0 1rem;font-size:1.1rem;color:#e0d5f5;">Related AI Tools</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+      <a href="ai-text-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Text Generator</a>
+      <a href="ai-prompt-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Prompt Generator</a>
+      <a href="ai-password-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Password Generator</a>
+      <a href="ai-lorem-ipsum-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Lorem Ipsum Generator</a>
+      <a href="ai-color-palette-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Color Palette Generator</a>
+      <a href="ai-meta-description-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Meta Description Generator</a>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="../privacy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+
+  <script>
+
+    function analyzeText() {
+      var text = document.getElementById('textInput').value;
+
+      // Characters
+      document.getElementById('charCount').textContent = text.length;
+      document.getElementById('charNoSpace').textContent = text.replace(/\s/g,'').length;
+
+      // Words
+      var words = text.trim() ? text.trim().split(/\s+/) : [];
+      document.getElementById('wordCount').textContent = words.length;
+
+      // Sentences
+      var sentences = text.trim() ? text.split(/[.!?]+/).filter(function(s){return s.trim().length>0}) : [];
+      document.getElementById('sentenceCount').textContent = sentences.length;
+
+      // Paragraphs
+      var paras = text.trim() ? text.split(/\n\s*\n/).filter(function(p){return p.trim().length>0}) : [];
+      if (paras.length === 0 && text.trim().length > 0) paras = [text];
+      document.getElementById('paraCount').textContent = paras.length;
+
+      // Average word length
+      if (words.length > 0) {
+        var totalLen = words.reduce(function(sum, w){ return sum + w.replace(/[^a-zA-Z0-9]/g,'').length; }, 0);
+        document.getElementById('avgWordLen').textContent = (totalLen / words.length).toFixed(1);
+      } else {
+        document.getElementById('avgWordLen').textContent = '0';
+      }
+
+      // Reading time (200 WPM)
+      var readMin = Math.ceil(words.length / 200);
+      document.getElementById('readTime').textContent = readMin + ' min';
+
+      // Speaking time (130 WPM)
+      var speakMin = Math.ceil(words.length / 130);
+      document.getElementById('speakTime').textContent = speakMin + ' min';
+    }
+
+    document.addEventListener('DOMContentLoaded', analyzeText);
+
+  </script>
+</body>
+</html>

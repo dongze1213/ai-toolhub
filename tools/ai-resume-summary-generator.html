@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Resume Summary Generator | AIToolHub</title>
+  <meta name="description" content="Create compelling resume summaries tailored to your experience and skills. Free, no sign-up.">
+  <meta name="keywords" content="resume summary generator, resume objective, professional summary, resume writer, CV summary">
+  <link rel="canonical" href="https://ai-toolhub-azure.vercel.app/tools/ai-resume-summary-generator">
+  <meta property="og:url" content="https://ai-toolhub-azure.vercel.app/tools/ai-resume-summary-generator">
+  <meta property="og:title" content="Free AI Resume Summary Generator | AIToolHub">
+  <meta property="og:description" content="Create compelling resume summaries tailored to your experience and skills. Free, no sign-up.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F916;</text></svg>">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Resume Summary Generator","description":"Create compelling resume summaries tailored to your experience and skills. Free, no sign-up.","brand":{"@type":"Brand","name":"AIToolHub"},"applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[        {"@type":"Question","name":'What is a resume summary?',"acceptedAnswer":{"@type":"Answer","text":'A resume summary is a 2-4 sentence overview at the top of your resume highlighting your key qualifications, experience, and career goals.'}},
+        {"@type":"Question","name":'How do I use this tool?',"acceptedAnswer":{"@type":"Answer","text":'Enter your job title, years of experience, and key skills. The generator will create 3 variations: short, medium, and detailed.'}},
+        {"@type":"Question","name":'Can I customize the output?',"acceptedAnswer":{"@type":"Answer","text":'Yes. Edit the generated text directly and copy your preferred version. Use the skills field to tailor the summary to your background.'}},
+        {"@type":"Question","name":'Is it free?',"acceptedAnswer":{"@type":"Answer","text":'Completely free with no limits.'}}]}
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo"><span class="logo-icon">&#x1F916;</span><span>AIToolHub</span></a>
+      <nav class="nav"><a href="../index.html#tools">AI Tools</a><a href="../index.html#about">About</a></nav>
+    </div>
+  </header>
+  <main class="container tool-page">
+    <div class="tool-header">
+      <a href="../index.html" class="back-link">&larr; Back</a>
+      <h1>AI Resume Summary Generator</h1>
+      <span class="privacy-note">&#128274; 100% Private</span>
+    </div>
+<div class="calc-layout">
+      <div class="calc-input-panel">
+        <div class="input-group"><label for="rsTitle">Job Title</label>
+          <input id="rsTitle" class="input-field" placeholder="e.g. Software Engineer"></div>
+        <div class="input-group"><label for="rsYears">Years of Experience</label>
+          <input id="rsYears" type="number" class="input-field" value="5" min="0" max="50"></div>
+        <div class="input-group"><label for="rsSkills">Key Skills (comma separated)</label>
+          <textarea id="rsSkills" class="input-field" rows="3" placeholder="e.g. JavaScript, React, Node.js, SQL"></textarea></div>
+        <button class="btn-generate" onclick="genRS()">&#128188; Generate Summaries</button>
+      </div>
+      <div class="calc-results-panel">
+        <button class="copy-btn" onclick="copyRes('rsOut')" style="margin-bottom:12px;display:inline-block">&#128203; Copy All</button>
+        <div id="rsOut" class="output-area"></div>
+      </div>
+    </div>
+  <script>
+    function genRS(){
+      var title=document.getElementById("rsTitle").value.trim()||"Professional";
+      var years=parseInt(document.getElementById("rsYears").value)||0;
+      var skills=document.getElementById("rsSkills").value.trim()||"various skills";
+      var yText=years===0?"entry-level":years<3?"junior":years<7?"mid-level":years<15?"senior":"executive-level";
+      var yWord=years===1?"1 year":years+" years";
+      var skList=skills.split(",").map(function(s){return s.trim();}).filter(Boolean);
+      var skStr=skList.slice(0,5).join(", ");
+      var shortV="Results-driven "+yText+" "+title+" with "+yWord+" of experience. Skilled in "+skStr+".";
+      var medV="Dynamic "+yText+" "+title+" with "+yWord+" of proven experience delivering high-impact solutions. Expertise in "+skStr+", with a track record of meeting deadlines and exceeding expectations. Passionate about driving innovation and continuous improvement.";
+      var detV="Accomplished "+yText+" "+title+" with "+yWord+" of progressive experience in developing and implementing effective solutions. Demonstrated expertise in "+skStr+", complemented by strong analytical and problem-solving abilities. Known for delivering measurable results, collaborating across teams, and adapting quickly to evolving requirements. Seeking to leverage comprehensive background to contribute to organizational success and drive strategic initiatives.";
+      document.getElementById("rsOut").innerHTML=
+        "<div style='margin-bottom:12px'><strong style='color:#a78bfa'>Short Version:</strong><div style='padding:8px;background:#241d3d;border-radius:6px;margin-top:4px'>"+shortV+"</div></div>"+
+        "<div style='margin-bottom:12px'><strong style='color:#a78bfa'>Medium Version:</strong><div style='padding:8px;background:#241d3d;border-radius:6px;margin-top:4px'>"+medV+"</div></div>"+
+        "<div style='margin-bottom:12px'><strong style='color:#a78bfa'>Detailed Version:</strong><div style='padding:8px;background:#241d3d;border-radius:6px;margin-top:4px'>"+detV+"</div></div>";
+    }
+    function copyRes(id){navigator.clipboard.writeText(document.getElementById(id).innerText).then(function(){var b=event.target;b.textContent="Copied!";setTimeout(function(){b.innerHTML="&#128203; Copy All";},1500);})}
+    genRS();
+  </script>
+    <div class="tool-about">
+      <h2>About Resume Summary Generator</h2>
+      <p>Generate professional resume summaries in seconds. Enter your job title, experience, and skills to get 3 tailored variations.</p>
+      <h3>Features</h3>
+      <ul>        <li>3 summary lengths: Short, Medium, Detailed</li>
+        <li>Industry-optimized phrasing</li>
+        <li>Skills-based customization</li>
+        <li>One-click copy</li></ul>
+    </div>
+    <div class="tool-about faq-section"><h2>FAQ</h2>      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-question"><span class="faq-arrow">&#9654;</span> What is a resume summary?</div><div class="faq-answer">A resume summary is a 2-4 sentence overview at the top of your resume highlighting your key qualifications, experience, and career goals.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-question"><span class="faq-arrow">&#9654;</span> How do I use this tool?</div><div class="faq-answer">Enter your job title, years of experience, and key skills. The generator will create 3 variations: short, medium, and detailed.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-question"><span class="faq-arrow">&#9654;</span> Can I customize the output?</div><div class="faq-answer">Yes. Edit the generated text directly and copy your preferred version. Use the skills field to tailor the summary to your background.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-question"><span class="faq-arrow">&#9654;</span> Is it free?</div><div class="faq-answer">Completely free with no limits.</div></div></div>
+  </main>
+  <section class="related-tools" style="max-width:900px;margin:2rem auto;padding:1.5rem;background:#1a1333;border-radius:12px;">
+    <h2 style="margin:0 0 1rem;font-size:1.1rem;color:#e0d5f5;">Related AI Tools</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;"><a href="ai-text-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Text Generator</a>
+<a href="ai-prompt-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Prompt Generator</a>
+<a href="ai-password-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Password Generator</a>
+<a href="ai-lorem-ipsum-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Lorem Ipsum Generator</a>
+<a href="ai-color-palette-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Color Palette Generator</a>
+<a href="ai-meta-description-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Meta Description Generator</a>
+<a href="ai-business-name-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Business Name Generator</a>
+<a href="ai-email-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Email Generator</a>
+<a href="ai-hashtag-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Hashtag Generator</a>
+<a href="ai-slogan-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Slogan Generator</a>
+<a href="ai-username-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Username Generator</a>
+<a href="ai-quote-generator.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">AI Quote Generator</a>
+<a href="ai-word-counter.html" style="display:inline-block;padding:6px 14px;background:#241d3d;border:1px solid #534AB7;border-radius:6px;text-decoration:none;color:#c4b5fd;font-size:0.85rem;">Word Counter</a></div>
+  </section>
+  <footer class="footer"><div class="container"><p>&copy; 2026 AIToolHub. Free AI-powered tools for everyone. <a href="../privacy.html">Privacy Policy</a></p></div></footer>
+</body>
+</html>
