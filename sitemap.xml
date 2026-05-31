@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/</loc>
+    <loc>https://ai-toolhub.pages.dev/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-text-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-text-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-prompt-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-prompt-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-password-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-password-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-lorem-ipsum-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-lorem-ipsum-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-color-palette-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-color-palette-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-meta-description-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-meta-description-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-business-name-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-business-name-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-email-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-email-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-hashtag-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-hashtag-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-resume-summary-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-resume-summary-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-slogan-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-slogan-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-username-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-username-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-quote-generator.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-quote-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ai-toolhub-azure.vercel.app/tools/ai-word-counter.html</loc>
+    <loc>https://ai-toolhub.pages.dev/tools/ai-word-counter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
