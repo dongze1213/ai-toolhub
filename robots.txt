@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ai-toolhub-azure.vercel.app/sitemap.xml
+Sitemap: https://ai-toolhub.pages.dev/sitemap.xml
